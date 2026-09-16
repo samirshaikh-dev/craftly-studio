@@ -1227,15 +1227,7 @@ export default function TermsPage() {
                 craftly.studio.vapi@gmail.com
               </a>
             </p>
-            <p className="text-on-surface-variant">
-              Phone:{" "}
-              <a
-                href="tel:+918320927182"
-                className="text-accent hover:underline"
-              >
-                +91 8320927182
-              </a>
-            </p>
+
             <p className="text-on-surface-variant mt-4">
               <Link
                 href="/contact"

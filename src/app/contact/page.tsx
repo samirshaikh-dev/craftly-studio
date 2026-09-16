@@ -9,7 +9,7 @@ import { BUSINESS_INFO } from "@/lib/seo/constants";
 export const metadata: Metadata = buildMetadata({
   title: "Contact Craftly Studio | Web Development Agency Vapi, Gujarat",
   description:
-    `Contact Craftly Studio for website development, SEO & digital solutions in Vapi, Gujarat. Get a free quote for your business website. Call ${BUSINESS_INFO.phone}.`,
+    "Contact Craftly Studio for website development, SEO & digital solutions in Vapi, Gujarat. Get a free quote for your business website.",
   path: "/contact",
   keywords: [
     "contact web developer Vapi",
@@ -57,15 +57,17 @@ export default function ContactPage() {
                         <a href={`mailto:${BUSINESS_INFO.email}`} className="text-on-surface-variant hover:text-accent transition-colors">{BUSINESS_INFO.email}</a>
                     </div>
                 </div>
-                <div className="flex items-start gap-4">
+                {BUSINESS_INFO.phone ? (
+                  <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent">
-                        <span className="material-symbols-outlined">phone</span>
+                      <span className="material-symbols-outlined">phone</span>
                     </div>
                     <div>
-                        <h4 className="font-bold text-lg">Call Us</h4>
-                        <a href={`tel:${BUSINESS_INFO.phone.replace(/\s/g, "")}`} className="text-on-surface-variant hover:text-accent transition-colors">{BUSINESS_INFO.phone}</a>
+                      <h4 className="font-bold text-lg">Call Us</h4>
+                      <a href={`tel:${BUSINESS_INFO.phone.replace(/\s/g, "")}`} className="text-on-surface-variant hover:text-accent transition-colors">{BUSINESS_INFO.phone}</a>
                     </div>
-                </div>
+                  </div>
+                ) : null}
                 <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent">
                         <span className="material-symbols-outlined">location_on</span>

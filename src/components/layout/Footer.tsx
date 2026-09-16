@@ -38,7 +38,9 @@ export default function Footer() {
               <p className="font-bold text-white">{BUSINESS_INFO.name}</p>
               <p>{BUSINESS_INFO.address.addressLocality}, {BUSINESS_INFO.address.addressRegion}, India - {BUSINESS_INFO.address.postalCode}</p>
               <p>Email: <a href={`mailto:${BUSINESS_INFO.email}`} className="hover:text-accent transition-colors">{BUSINESS_INFO.email}</a></p>
-              <p>Phone: <a href={`tel:${BUSINESS_INFO.phone}`} className="hover:text-accent transition-colors">{BUSINESS_INFO.phone}</a></p>
+              {BUSINESS_INFO.phone ? (
+                <p>Phone: <a href={`tel:${BUSINESS_INFO.phone}`} className="hover:text-accent transition-colors">{BUSINESS_INFO.phone}</a></p>
+              ) : null}
             </address>
             <div className="flex gap-3">
               <Link 

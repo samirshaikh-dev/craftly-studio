@@ -12,7 +12,7 @@ export const BUSINESS_INFO = {
   shortDescription:
     "We design and develop custom websites that help businesses build trust, attract customers, and grow online.",
   email: "craftly.studio.vapi@gmail.com",
-  phone: "+91 8320927182",
+  phone: "" as string,
   foundingYear: 2024,
   address: {
     streetAddress: "Vapi",

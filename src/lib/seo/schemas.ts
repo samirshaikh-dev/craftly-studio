@@ -14,7 +14,7 @@ export function organizationSchema() {
     image: `${SITE_URL}/craftly-studio-digital-agency-vapi-gujarat.jpg`,
     description: BUSINESS_INFO.description,
     email: BUSINESS_INFO.email,
-    telephone: BUSINESS_INFO.phone,
+    ...(BUSINESS_INFO.phone ? { telephone: BUSINESS_INFO.phone } : {}),
     foundingDate: `${BUSINESS_INFO.foundingYear}`,
     address: {
       "@type": "PostalAddress",
@@ -27,7 +27,7 @@ export function organizationSchema() {
     sameAs: Object.values(BUSINESS_INFO.socialLinks),
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: BUSINESS_INFO.phone,
+      ...(BUSINESS_INFO.phone ? { telephone: BUSINESS_INFO.phone } : {}),
       contactType: "customer service",
       email: BUSINESS_INFO.email,
       availableLanguage: ["English", "Hindi", "Gujarati"],
@@ -48,7 +48,7 @@ export function localBusinessSchema() {
     logo: `${SITE_URL}/craftly-studio-digital-agency-vapi-gujarat.jpg`,
     description: BUSINESS_INFO.description,
     email: BUSINESS_INFO.email,
-    telephone: BUSINESS_INFO.phone,
+    ...(BUSINESS_INFO.phone ? { telephone: BUSINESS_INFO.phone } : {}),
     priceRange: BUSINESS_INFO.priceRange,
     address: {
       "@type": "PostalAddress",

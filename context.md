@@ -46,6 +46,7 @@ Craftly Studio solves this by providing:
 | Industries | `/industries/[slug]` | Implemented |
 | Portfolio Listing | `/portfolio` | Implemented — grid of project cards |
 | Blog Listing | `/blog` | Implemented — featured article, article cards |
+| Blog Article | `/blog/[slug]` | Implemented — full article view with cover, tags, author, and related posts |
 | Contact | `/contact` | Implemented — lead form with Firestore + email |
 | Privacy | `/privacy` | Implemented |
 | Terms | `/terms` | Implemented (1240 lines) |
@@ -53,7 +54,6 @@ Craftly Studio solves this by providing:
 | Not Found | 404 | Implemented |
 
 **Planned / Not yet built (public):**
-- Blog Article `/blog/[slug]`
 - Case Study `/portfolio/[slug]`
 
 ### Admin CMS (Authenticated) — Implemented
@@ -115,6 +115,7 @@ Craftly Studio solves this by providing:
 | TypeScript | ^5 | Type safety, maintainability (strict mode) |
 | Tailwind CSS | ^4 | Utility-first styling via `@tailwindcss/postcss` |
 | Framer Motion | 12.42.2 | Animations and transitions |
+| Lenis | ^1.3.26 | Smooth global scrolling (SmoothScroll component) |
 | Lucide React | 1.24.0 | Icons |
 | shadcn/ui | (not installed) | Planned component library — currently custom Tailwind components |
 | Google Fonts | — | Plus Jakarta Sans + Manrope (self-hosted via `next/font/google`) |
@@ -172,7 +173,10 @@ craftly-studio/
 ├── .env.example               # 15 env var placeholders (Firebase, SMTP, GA, Cloudinary)
 ├── .gitignore                 # Ignores .env*, .next/, node_modules/, etc.
 ├── agents/                    # AI agent definitions (for AI coding assistants)
+│   ├── generic/               # Tool-agnostic agent prompts
+│   └── skills/                # 12 specialized engineering skills (frontend, ui-ux, backend, seo, etc.)
 ├── AGENTS.md                  # AI agent instructions for Next.js
+├── animation-motion-plan.md   # Smoothness and animation strategy (Lenis + Framer Motion)
 ├── CLAUDE.md                  # Pointer to AGENTS.md
 ├── context.md                 # This document
 ├── docs/                      # Project specification documents
@@ -183,6 +187,7 @@ craftly-studio/
 │   ├── 05_TASKS.md            # Development Roadmap (33 tasks, 7 phases)
 │   └── DESIGN.md
 ├── eslint.config.mjs          # ESLint 9 flat config
+├── gemini.md                  # Gemini context and engineering system directives
 ├── next.config.ts             # reactCompiler: true, image remote patterns
 ├── postcss.config.mjs         # Tailwind v4 PostCSS plugin
 ├── pnpm-workspace.yaml        # Build-script allowlist
@@ -206,7 +211,9 @@ craftly-studio/
 │   │   ├── api/
 │   │   │   ├── contact/       # POST lead
 │   │   │   └── media/         # POST upload, DELETE [id]
-│   │   ├── blog/              # Listing page
+│   │   ├── blog/              # Listing page + [slug]/ dynamic article page
+│   │   │   ├── page.tsx
+│   │   │   └── [slug]/page.tsx
 │   │   ├── contact/
 │   │   ├── industries/[slug]/
 │   │   ├── mission/
@@ -221,7 +228,7 @@ craftly-studio/
 │   ├── components/
 │   │   ├── auth/              # AuthGuard
 │   │   ├── forms/             # BlogPostForm, ContactForm
-│   │   ├── layout/            # AdminSidebar, AdminTopbar, Footer, Navbar(+Navbar/), PublicShell
+│   │   ├── layout/            # AdminSidebar, AdminTopbar, Footer, Navbar, PublicShell, SmoothScroll
 │   │   ├── sections/          # HeroSection, ServiceCard, TestimonialSection, etc.
 │   │   └── seo/               # Breadcrumbs, JsonLd
 │   ├── config/
@@ -537,14 +544,18 @@ The project follows a 7-phase incremental build strategy (see `docs/05_TASKS.md`
 
 | File | Description |
 |------|-------------|
-| `agents/` | AI agent definitions directory — populated manually with agent configurations for AI coding assistants |
+| `gemini.md` | Gemini context and engineering system directives — strict skill enforcement protocol and architecture rules |
+| `AGENTS.md` | Universal agent instructions — warns about Next.js 16 breaking changes and project tech stack |
+| `CLAUDE.md` | Pointer to `AGENTS.md` for Claude Code / Anthropic assistants |
+| `animation-motion-plan.md` | Smoothness and animation strategy — Lenis scroll integration and Framer Motion roadmap |
+| `agents/skills/` | 12 specialized engineering skills (frontend, ui-ux, backend, database, devops, security, seo, performance, accessibility) |
+| `agents/` | AI agent definitions directory — subagent prompts and instructions |
 | `docs/01_PRD.md` | Product Requirements Document — vision, goals, personas, user stories, functional/non-functional requirements |
 | `docs/02_TECHNICAL_DESIGN.md` | Technical Design Document — architecture, technology decisions, database design, API architecture, security |
 | `docs/03_UI_UX.md` | UI/UX Specification — design principles, page layouts, component system, responsive behavior, animations |
 | `docs/04_AI_RULES.md` | AI Coding Guidelines — rules for AI assistants: TypeScript, components, Firebase, security, testing, git |
 | `docs/05_TASKS.md` | Development Roadmap — 33 tasks across 7 phases with priorities and dependencies |
 | `docs/DESIGN.md` | Visual Design Specification — brand personality, typography, colors, layout philosophy, component design |
-| `AGENTS.md` | Agent instructions — warns about Next.js breaking changes, directs to docs in `node_modules/next/dist/docs/` |
 
 ---
 
@@ -552,15 +563,16 @@ The project follows a 7-phase incremental build strategy (see `docs/05_TASKS.md`
 
 | Aspect | Status |
 |--------|--------|
-| Project scaffolding | Complete (Next.js 16 + TypeScript + Tailwind v4 + React Compiler) |
-| Public website | Implemented (home, about, mission, services, industries, portfolio, blog, contact, legal) |
+| Project scaffolding | Complete (Next.js 16.2.10 + React 19 + TypeScript + Tailwind v4 + React Compiler) |
+| Public website | Implemented (home, about, mission, services, industries, portfolio, blog listing, blog detail `[slug]`, contact, legal) |
 | Admin CMS | Partial (blog CRUD, inquiries, media) — services/portfolio/testimonials/seo pending |
 | Authentication | Simulated (env-var + localStorage) — real Firebase Auth planned |
 | Firebase | Configured — Firestore (`blogPosts`, `leads`, `media`) |
 | Media storage | Cloudinary (Firebase Storage initialized but unused) |
+| Motion & Polish | Lenis smooth scroll active + Framer Motion interactive cards/reveals |
 | Email | Implemented (Nodemailer SMTP + HTML templates) |
 | shadcn/ui | Not installed (custom Tailwind components) |
-| Testing | Not set up |
-| SEO | Complete (metadata, JSON-LD, sitemap, robots, GA, Search Console) |
+| Testing | Not set up (Vitest, RTL, Playwright roadmap items) |
+| SEO | Complete (metadata, JSON-LD, dynamic sitemap, robots, GA, Search Console) |
 | Git history | 13 commits on `main` (`type(scope): description` style) |
 | Known technical debt | `any` in `src/types/lead.ts:19`; oversized pages (`terms` 1240 lines, `services/[slug]` 603, `industries/[slug]` 556); stubs in `CloudTransition.tsx`, `PageHeader.tsx`, `service-constants.ts` |

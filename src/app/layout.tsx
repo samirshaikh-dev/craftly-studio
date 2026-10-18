@@ -5,6 +5,7 @@ import "./globals.css";
 import PublicShell from "@/components/layout/PublicShell";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Analytics from "@/lib/analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import JsonLd from "@/components/seo/JsonLd";
 import { organizationSchema, localBusinessSchema, websiteSchema } from "@/lib/seo/schemas";
 import { SITE_URL, SITE_NAME, BUSINESS_INFO, KEYWORDS } from "@/lib/seo/constants";
@@ -95,6 +96,7 @@ export default function RootLayout({
         <JsonLd data={websiteSchema()} />
       </head>
       <body className="min-h-full flex flex-col bg-bg-primary text-on-surface font-body">
+        <VercelAnalytics />
         <SmoothScroll />
         <PublicShell>{children}</PublicShell>
       </body>

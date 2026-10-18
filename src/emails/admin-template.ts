@@ -3,6 +3,10 @@ export function getAdminEmailTemplate(data: {
   email: string;
   phone?: string;
   company?: string;
+  projectType?: string;
+  priorityLevel?: string;
+  budgetRange?: string;
+  timeline?: string;
   message: string;
 }): string {
   // Escape message HTML to avoid XSS injections in email client
@@ -95,11 +99,20 @@ export function getAdminEmailTemplate(data: {
     .details-table th {
       color: #4b5563;
       font-weight: 600;
-      width: 120px;
+      width: 130px;
     }
     .details-table td {
       color: #0f172a;
       font-weight: 500;
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      background-color: #ffedd5;
+      color: #c2410c;
     }
     .message-box {
       background-color: #f9fafb;
@@ -152,6 +165,22 @@ export function getAdminEmailTemplate(data: {
           <tr>
             <th>Company</th>
             <td>${data.company || '<span style="color: #9ca3af; font-style: italic;">Not provided</span>'}</td>
+          </tr>
+          <tr>
+            <th>Project Type</th>
+            <td>${data.projectType || '<span style="color: #9ca3af; font-style: italic;">Not specified</span>'}</td>
+          </tr>
+          <tr>
+            <th>Priority</th>
+            <td><span class="badge">${data.priorityLevel || 'Medium Priority'}</span></td>
+          </tr>
+          <tr>
+            <th>Budget Range</th>
+            <td>${data.budgetRange || '<span style="color: #9ca3af; font-style: italic;">Not specified</span>'}</td>
+          </tr>
+          <tr>
+            <th>Timeline</th>
+            <td>${data.timeline || '<span style="color: #9ca3af; font-style: italic;">Not specified</span>'}</td>
           </tr>
           <tr>
             <th>Submitted At</th>

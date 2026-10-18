@@ -286,6 +286,10 @@ craftly-studio/
 | email | string | Contact email |
 | phone | string | Phone number |
 | company | string | Company name |
+| projectType | string | Selected project type (optional) |
+| priorityLevel | string | Priority level (`Low Priority`, `Medium Priority`, `High Priority`, etc.) |
+| budgetRange | string | Client budget range |
+| timeline | string | Expected delivery timeline |
 | message | string | Inquiry message |
 | source | string | Lead source (e.g. `contact_form`) |
 | status | string | `new`, `contacted`, `converted` |

@@ -1,4 +1,4 @@
-﻿import { z } from "zod";
+import { z } from "zod";
 
 export const contactFormSchema = z.object({
   firstName: z.string().trim().min(1, "First name is required").max(50, "First name is too long"),
@@ -6,6 +6,10 @@ export const contactFormSchema = z.object({
   email: z.string().trim().min(1, "Email is required").email("Invalid email address"),
   phone: z.string().trim().max(20, "Phone number is too long").optional().or(z.literal("")),
   company: z.string().trim().max(100, "Company name is too long").optional().or(z.literal("")),
+  projectType: z.string().trim().max(100, "Project type is too long").optional().or(z.literal("")),
+  priorityLevel: z.string().trim().min(1, "Please select a priority level"),
+  budgetRange: z.string().trim().min(1, "Please select a budget range"),
+  timeline: z.string().trim().min(1, "Please select a timeline"),
   message: z.string().trim().min(10, "Message must be at least 10 characters").max(5000, "Message is too long"),
 });
 

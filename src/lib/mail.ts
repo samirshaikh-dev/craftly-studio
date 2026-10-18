@@ -35,6 +35,10 @@ export async function sendContactEmails(data: {
   email: string;
   phone?: string;
   company?: string;
+  projectType?: string;
+  priorityLevel?: string;
+  budgetRange?: string;
+  timeline?: string;
   message: string;
 }) {
   const transporter = createTransporter();
@@ -49,6 +53,10 @@ Name: ${data.name}
 Email: ${data.email}
 Phone: ${data.phone || 'Not provided'}
 Company: ${data.company || 'Not provided'}
+Project Type: ${data.projectType || 'Not specified'}
+Priority: ${data.priorityLevel || 'Medium Priority'}
+Budget: ${data.budgetRange || 'Not specified'}
+Timeline: ${data.timeline || 'Not specified'}
 
 Message:
 ${data.message}

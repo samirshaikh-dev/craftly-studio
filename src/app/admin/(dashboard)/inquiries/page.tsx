@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import { getLeads } from "@/lib/firebase/lead";
@@ -44,6 +44,13 @@ export default function AdminInquiriesPage() {
     converted: "bg-green-100 text-green-700",
   };
 
+  const priorityStyles: Record<string, string> = {
+    "High Priority": "bg-orange-100 text-orange-800",
+    "Urgent / Critical": "bg-red-100 text-red-800",
+    "Medium Priority": "bg-blue-50 text-blue-700",
+    "Low Priority": "bg-gray-100 text-gray-700",
+  };
+
   return (
     <div>
       <div className="flex items-center justify-between mb-8">
@@ -83,9 +90,9 @@ export default function AdminInquiriesPage() {
             <table className="w-full text-left">
               <thead>
                 <tr className="border-b border-outline">
-                  <th className="px-6 py-4 text-sm font-bold text-on-surface-variant">Name</th>
+                  <th className="px-6 py-4 text-sm font-bold text-on-surface-variant">Name & Project</th>
                   <th className="px-6 py-4 text-sm font-bold text-on-surface-variant hidden md:table-cell">Email</th>
-                  <th className="px-6 py-4 text-sm font-bold text-on-surface-variant hidden lg:table-cell">Company</th>
+                  <th className="px-6 py-4 text-sm font-bold text-on-surface-variant hidden lg:table-cell">Budget & Timeline</th>
                   <th className="px-6 py-4 text-sm font-bold text-on-surface-variant hidden lg:table-cell">Date</th>
                   <th className="px-6 py-4 text-sm font-bold text-on-surface-variant">Status</th>
                 </tr>
@@ -94,14 +101,26 @@ export default function AdminInquiriesPage() {
                 {filtered.map((lead) => (
                   <tr key={lead.id} className="border-b border-outline last:border-b-0 hover:bg-white transition-colors">
                     <td className="px-6 py-4">
-                      <p className="font-bold text-on-surface truncate max-w-[200px]">{lead.name}</p>
-                      <p className="text-sm text-on-surface-variant truncate max-w-[250px] mt-0.5">{lead.message}</p>
+                      <div className="flex items-center gap-2">
+                        <p className="font-bold text-on-surface truncate max-w-[200px]">{lead.name}</p>
+                        {lead.priorityLevel && (
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${priorityStyles[lead.priorityLevel] || "bg-gray-100 text-gray-700"}`}>
+                            {lead.priorityLevel}
+                          </span>
+                        )}
+                      </div>
+                      {lead.projectType && (
+                        <p className="text-xs font-semibold text-accent mt-0.5">{lead.projectType}</p>
+                      )}
+                      <p className="text-sm text-on-surface-variant truncate max-w-[280px] mt-0.5">{lead.message}</p>
                     </td>
                     <td className="px-6 py-4 hidden md:table-cell">
                       <a href={`mailto:${lead.email}`} className="text-sm text-accent hover:underline">{lead.email}</a>
+                      {lead.phone && <p className="text-xs text-on-surface-variant mt-0.5">{lead.phone}</p>}
                     </td>
                     <td className="px-6 py-4 hidden lg:table-cell">
-                      <span className="text-sm text-on-surface-variant">{lead.company || "—"}</span>
+                      <span className="text-sm font-medium text-on-surface">{lead.budgetRange || lead.company || "—"}</span>
+                      {lead.timeline && <p className="text-xs text-on-surface-variant mt-0.5">Timeline: {lead.timeline}</p>}
                     </td>
                     <td className="px-6 py-4 hidden lg:table-cell">
                       <span className="text-sm text-on-surface-variant">{formatDate(lead.createdAt)}</span>

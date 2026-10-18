@@ -24,6 +24,10 @@ export default function ContactForm() {
       email: "",
       phone: "",
       company: "",
+      projectType: "",
+      priorityLevel: "Medium Priority",
+      budgetRange: "",
+      timeline: "",
       message: "",
     },
   });
@@ -197,6 +201,106 @@ export default function ContactForm() {
           />
           {errors.company && (
             <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.company.message}</p>
+          )}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <label htmlFor="projectType" className="block text-sm font-bold text-on-surface mb-2">
+            Project Type <span className="text-on-surface-variant font-normal">(Optional)</span>
+          </label>
+          <select
+            id="projectType"
+            disabled={isSubmitting}
+            {...register("projectType")}
+            className={`w-full bg-white border ${
+              errors.projectType ? "border-red-500 focus:border-red-500" : "border-outline focus:border-accent"
+            } rounded-lg px-4 py-3 text-on-surface focus:outline-none transition-colors cursor-pointer`}
+          >
+            <option value="">Select project type</option>
+            <option value="Website Development">Website Development</option>
+            <option value="E-commerce Development">E-commerce Development</option>
+            <option value="Website Redesign">Website Redesign</option>
+            <option value="Local SEO & Growth">Local SEO & Growth</option>
+            <option value="AI Automation & Chatbots">AI Automation & Chatbots</option>
+            <option value="Website Maintenance & Support">Website Maintenance & Support</option>
+            <option value="Custom Web Application">Custom Web Application</option>
+            <option value="Other / Consultation">Other / Consultation</option>
+          </select>
+          {errors.projectType && (
+            <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.projectType.message}</p>
+          )}
+        </div>
+        <div>
+          <label htmlFor="priorityLevel" className="block text-sm font-bold text-on-surface mb-2">
+            Priority Level <span className="text-accent">*</span>
+          </label>
+          <select
+            id="priorityLevel"
+            disabled={isSubmitting}
+            {...register("priorityLevel")}
+            className={`w-full bg-white border ${
+              errors.priorityLevel ? "border-red-500 focus:border-red-500" : "border-outline focus:border-accent"
+            } rounded-lg px-4 py-3 text-on-surface focus:outline-none transition-colors cursor-pointer`}
+          >
+            <option value="Low Priority">Low Priority</option>
+            <option value="Medium Priority">Medium Priority</option>
+            <option value="High Priority">High Priority</option>
+            <option value="Urgent / Critical">Urgent / Critical</option>
+          </select>
+          {errors.priorityLevel && (
+            <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.priorityLevel.message}</p>
+          )}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <label htmlFor="budgetRange" className="block text-sm font-bold text-on-surface mb-2">
+            Budget Range <span className="text-accent">*</span>
+          </label>
+          <select
+            id="budgetRange"
+            disabled={isSubmitting}
+            {...register("budgetRange")}
+            className={`w-full bg-white border ${
+              errors.budgetRange ? "border-red-500 focus:border-red-500" : "border-outline focus:border-accent"
+            } rounded-lg px-4 py-3 text-on-surface focus:outline-none transition-colors cursor-pointer`}
+          >
+            <option value="">Select budget range</option>
+            <option value="Under ₹25,000 (< $300)">Under ₹25,000 (&lt; $300)</option>
+            <option value="₹25,000 - ₹50,000 ($300 - $600)">₹25,000 - ₹50,000 ($300 - $600)</option>
+            <option value="₹50,000 - ₹1,00,000 ($600 - $1,200)">₹50,000 - ₹1,00,000 ($600 - $1,200)</option>
+            <option value="₹1,00,000 - ₹2,50,000 ($1,200 - $3,000)">₹1,00,000 - ₹2,50,000 ($1,200 - $3,000)</option>
+            <option value="₹2,50,000+ ($3,000+)">₹2,50,000+ ($3,000+)</option>
+            <option value="Flexible / Custom">Flexible / Custom</option>
+          </select>
+          {errors.budgetRange && (
+            <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.budgetRange.message}</p>
+          )}
+        </div>
+        <div>
+          <label htmlFor="timeline" className="block text-sm font-bold text-on-surface mb-2">
+            Timeline <span className="text-accent">*</span>
+          </label>
+          <select
+            id="timeline"
+            disabled={isSubmitting}
+            {...register("timeline")}
+            className={`w-full bg-white border ${
+              errors.timeline ? "border-red-500 focus:border-red-500" : "border-outline focus:border-accent"
+            } rounded-lg px-4 py-3 text-on-surface focus:outline-none transition-colors cursor-pointer`}
+          >
+            <option value="">Select timeline</option>
+            <option value="Urgent (< 2 weeks)">Urgent (&lt; 2 weeks)</option>
+            <option value="2 - 4 weeks">2 - 4 weeks</option>
+            <option value="1 - 2 months">1 - 2 months</option>
+            <option value="3+ months">3+ months</option>
+            <option value="Flexible / Open discussion">Flexible / Open discussion</option>
+          </select>
+          {errors.timeline && (
+            <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.timeline.message}</p>
           )}
         </div>
       </div>

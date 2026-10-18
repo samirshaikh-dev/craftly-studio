@@ -7,7 +7,7 @@ import { contactFormSchema } from "@/utils/validation";
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
 export async function createContactSubmission(data: ContactFormData): Promise<string> {
-  const { firstName, lastName, email, phone, company, message } = data;
+  const { firstName, lastName, email, phone, company, projectType, priorityLevel, budgetRange, timeline, message } = data;
   const name = `${firstName} ${lastName}`.trim();
 
   console.log("[contact-mutations] Validated contact submission received");
@@ -17,6 +17,10 @@ export async function createContactSubmission(data: ContactFormData): Promise<st
     email,
     phone: phone || "",
     company: company || "",
+    projectType: projectType || "",
+    priorityLevel: priorityLevel || "Medium Priority",
+    budgetRange: budgetRange || "",
+    timeline: timeline || "",
     message,
     source: "contact_form",
     status: "new",
@@ -41,7 +45,17 @@ export async function createContactSubmission(data: ContactFormData): Promise<st
   }
 
   console.log("[contact-mutations] Dispatching contact emails...");
-  await sendContactEmails({ name, email, phone, company, message });
+  await sendContactEmails({
+    name,
+    email,
+    phone,
+    company,
+    projectType,
+    priorityLevel,
+    budgetRange,
+    timeline,
+    message,
+  });
   console.log("[contact-mutations] Emails sent successfully.");
 
   return docRef?.id || "pending";

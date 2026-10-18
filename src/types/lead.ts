@@ -4,6 +4,10 @@ export interface ContactFormData {
   email: string;
   phone?: string;
   company?: string;
+  projectType?: string;
+  priorityLevel: string;
+  budgetRange: string;
+  timeline: string;
   message: string;
 }
 
@@ -13,8 +17,12 @@ export interface LeadRecord {
   email: string;
   phone: string;
   company: string;
+  projectType?: string;
+  priorityLevel?: string;
+  budgetRange?: string;
+  timeline?: string;
   message: string;
   source: string;
-  status: 'new' | 'contacted' | 'converted';
-  createdAt: any; // Using "any" here as Firestore Timestamp or FieldValue can vary at runtime
+  status: "new" | "contacted" | "converted";
+  createdAt: unknown;
 }

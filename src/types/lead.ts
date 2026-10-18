@@ -12,17 +12,25 @@ export interface ContactFormData {
 }
 
 export interface LeadRecord {
-  id?: string;
+  id: string;
   name: string;
   email: string;
-  phone: string;
-  company: string;
+  phone?: string;
+  company?: string;
   projectType?: string;
   priorityLevel?: string;
   budgetRange?: string;
   timeline?: string;
   message: string;
   source: string;
-  status: "new" | "contacted" | "converted";
+  status: "new" | "contacted" | "converted" | "archived";
+  notes?: string;
   createdAt: unknown;
+  updatedAt?: unknown;
 }
+
+export interface UpdateLeadInput {
+  status?: "new" | "contacted" | "converted" | "archived";
+  notes?: string;
+}
+

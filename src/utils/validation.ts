@@ -27,3 +27,9 @@ export const blogPostSchema = z.object({
   seoDescription: z.string().trim().max(500, "SEO description is too long"),
   seoKeywords: z.string().trim().max(300, "SEO keywords string is too long"),
 });
+
+export const updateLeadSchema = z.object({
+  status: z.enum(["new", "contacted", "converted", "archived"]).optional(),
+  notes: z.string().trim().max(2000, "Notes cannot exceed 2000 characters").optional(),
+});
+

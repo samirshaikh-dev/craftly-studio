@@ -5,7 +5,7 @@ import FaqSection from "@/components/sections/FaqSection";
 import FinalCta from "@/components/sections/FinalCta";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
-import { articleSchema } from "@/lib/seo/schemas";
+import { articleSchema, faqSchema } from "@/lib/seo/schemas";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { BLOG_POSTS, getBlogPost, getRelatedPosts } from "@/lib/blog/posts";
 
@@ -56,6 +56,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           dateModified: post.dateModified,
         })}
       />
+      {post.faqs.length > 0 && <JsonLd data={faqSchema(post.faqs)} />}
 
       {/* Article Header */}
       <section className="pt-48 pb-16 bg-surface">
@@ -107,6 +108,27 @@ export default async function BlogPostPage({ params }: PageProps) {
       {/* Article Body */}
       <article className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-margin-mobile md:px-0">
+          {post.takeaways && post.takeaways.length > 0 && (
+            <div className="bg-surface border border-outline rounded-2xl p-6 md:p-8 mb-12">
+              <div className="flex items-center gap-2 mb-4 text-xs font-bold text-accent uppercase tracking-widest">
+                <span className="material-symbols-outlined text-base">bolt</span>
+                <span>Key Takeaways &amp; Summary</span>
+              </div>
+              <ul className="space-y-3">
+                {post.takeaways.map((point, tIndex) => (
+                  <li key={tIndex} className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-accent text-lg mt-0.5 shrink-0">
+                      check_circle
+                    </span>
+                    <span className="text-base md:text-lg text-on-surface font-medium leading-relaxed">
+                      {point}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {post.content.map((block, index) => (
             <div key={`${block.heading}-${index}`} className="mb-12">
               <h2 className="font-display text-2xl md:text-3xl font-bold mb-5">

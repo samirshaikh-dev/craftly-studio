@@ -42,6 +42,7 @@ Craftly Studio solves this by providing:
 | About | `/about` | Implemented |
 | Mission | `/mission` | Implemented |
 | Services Listing | `/services` | Implemented |
+| Pricing | `/pricing` | Implemented — transparent tiers (₹15k, ₹45k, ₹95k+), delivery timelines, FAQ schema |
 | Service Detail | `/services/[slug]` | Implemented — hero, benefits, process, FAQ, CTA |
 | Industries | `/industries/[slug]` | Implemented |
 | Portfolio Listing | `/portfolio` | Implemented — grid of project cards |
@@ -85,13 +86,18 @@ Craftly Studio solves this by providing:
 - Nodemailer SMTP service (`src/lib/mail.ts`)
 - HTML templates for admin + user (`src/emails/admin-template.ts`, `src/emails/user-template.ts`)
 
-### SEO — Implemented
+### SEO & AEO/GEO Machine Discovery — Implemented
 
 - Metadata for every public page, `generateMetadata()` for dynamic pages
-- JSON-LD structured data (Organization, Service, Article, LocalBusiness) via `src/lib/seo/schemas.ts`
-- Auto-generated `sitemap.ts` and `robots.ts`
-- Google Analytics GA4 component
-- Google Search Console verification
+- JSON-LD structured data (Organization, ProfessionalService/LocalBusiness, Service, Article, FAQPage, BreadcrumbList, Person) via `src/lib/seo/schemas.ts`
+- Auto-generated `sitemap.ts` (with stable release `lastmod` integrity) and `robots.ts` (allowing modern AI crawlers: GPTBot, Claude-Search, Perplexity, DeepSeekBot, MistralBot)
+- Web App Manifest (`src/app/manifest.ts`) and dynamic social cards (`src/app/opengraph-image.tsx`)
+- RSS 2.0 XML feed (`src/app/feed.xml/route.ts`) for aggregators and fast AI syndication
+- Standardized `llms.txt` and `llms-full.txt` (llmstxt.org specification) + `/.well-known/llms.txt`
+- Plaintext markdown network for LLM ingestion: `/services.md`, `/pricing.md`, `/about.md`
+- IndexNow instant indexing pipeline: key file `c7490f23b7a840e6958a7e02e1bdfc54.txt` + dispatcher utility `src/lib/seo/indexnow.ts`
+- RFC 9116 security disclosure (`public/.well-known/security.txt`)
+- Google Analytics GA4 component + Google Search Console verification
 
 ### Planned Future Features (v2)
 
@@ -192,14 +198,23 @@ craftly-studio/
 ├── postcss.config.mjs         # Tailwind v4 PostCSS plugin
 ├── pnpm-workspace.yaml        # Build-script allowlist
 ├── public/
+│   ├── .well-known/           # security.txt, llms.txt
+│   ├── about.md               # Plaintext markdown overview
+│   ├── pricing.md             # Plaintext pricing breakdown
+│   ├── services.md            # Plaintext service directory
+│   ├── c7490f23b7a840e6958a7e02e1bdfc54.txt # IndexNow verification key
+│   ├── llms.txt               # Standardized LLM manifest (llmstxt.org)
+│   └── llms-full.txt          # Unabridged LLM knowledge base
 ├── src/
 │   ├── app/                   # Next.js App Router (routes and pages)
 │   │   ├── layout.tsx         # Root layout (fonts, SEO metadata, JSON-LD, PublicShell)
 │   │   ├── globals.css        # Tailwind v4 theme tokens
 │   │   ├── page.tsx           # Homepage
 │   │   ├── not-found.tsx
-│   │   ├── robots.ts
-│   │   ├── sitemap.ts
+│   │   ├── manifest.ts        # Dynamic manifest.webmanifest
+│   │   ├── opengraph-image.tsx# Dynamic 1200x630 OG image (ImageResponse)
+│   │   ├── robots.ts          # Crawl directives & AI bot permissions
+│   │   ├── sitemap.ts         # XML sitemap with stable lastmod
 │   │   ├── about/
 │   │   ├── admin/
 │   │   │   ├── (dashboard)/   # Route group — AuthGuard + AdminSidebar + AdminTopbar
@@ -215,9 +230,12 @@ craftly-studio/
 │   │   │   ├── page.tsx
 │   │   │   └── [slug]/page.tsx
 │   │   ├── contact/
+│   │   ├── feed.xml/          # RSS 2.0 XML route handler (route.ts)
 │   │   ├── industries/[slug]/
 │   │   ├── mission/
 │   │   ├── portfolio/
+│   │   ├── pricing/           # Transparent pricing tiers & FAQ schema
+│   │   │   └── page.tsx
 │   │   ├── privacy/
 │   │   ├── services/
 │   │   │   ├── page.tsx
@@ -246,7 +264,7 @@ craftly-studio/
 │   │   │   ├── contact/       # mutations (leads)
 │   │   │   ├── lead/          # queries (leads)
 │   │   │   └── media/         # queries (media)
-│   │   └── seo/               # constants, metadata, schemas
+│   │   └── seo/               # constants, indexnow.ts, metadata, schemas
 │   ├── types/                 # blog.ts, lead.ts, media.ts, service.ts
 │   └── utils/
 │       └── validation.ts      # Zod schemas (contactForm, blogPost)
@@ -552,7 +570,7 @@ The project follows a 7-phase incremental build strategy (see `docs/05_TASKS.md`
 | `AGENTS.md` | Universal agent instructions — warns about Next.js 16 breaking changes and project tech stack |
 | `CLAUDE.md` | Pointer to `AGENTS.md` for Claude Code / Anthropic assistants |
 | `animation-motion-plan.md` | Smoothness and animation strategy — Lenis scroll integration and Framer Motion roadmap |
-| `agents/skills/` | 12 specialized engineering skills (frontend, ui-ux, backend, database, devops, security, seo, performance, accessibility) |
+| `agents/skills/` | 13 specialized engineering skills (frontend, ui-ux, backend, database, devops, security, seo, performance, accessibility, seo-strategy) |
 | `agents/` | AI agent definitions directory — subagent prompts and instructions |
 | `docs/01_PRD.md` | Product Requirements Document — vision, goals, personas, user stories, functional/non-functional requirements |
 | `docs/02_TECHNICAL_DESIGN.md` | Technical Design Document — architecture, technology decisions, database design, API architecture, security |
@@ -568,7 +586,7 @@ The project follows a 7-phase incremental build strategy (see `docs/05_TASKS.md`
 | Aspect | Status |
 |--------|--------|
 | Project scaffolding | Complete (Next.js 16.2.10 + React 19 + TypeScript + Tailwind v4 + React Compiler) |
-| Public website | Implemented (home, about, mission, services, industries, portfolio, blog listing, blog detail `[slug]`, contact, legal) |
+| Public website | Implemented (home, about, mission, services, pricing, industries, portfolio, blog listing, blog detail `[slug]`, contact, legal) |
 | Admin CMS | Partial (blog CRUD, inquiries, media) — services/portfolio/testimonials/seo pending |
 | Authentication | Simulated (env-var + localStorage) — real Firebase Auth planned |
 | Firebase | Configured — Firestore (`blogPosts`, `leads`, `media`) |
@@ -577,6 +595,6 @@ The project follows a 7-phase incremental build strategy (see `docs/05_TASKS.md`
 | Email | Implemented (Nodemailer SMTP + HTML templates) |
 | shadcn/ui | Not installed (custom Tailwind components) |
 | Testing | Not set up (Vitest, RTL, Playwright roadmap items) |
-| SEO | Complete (metadata, JSON-LD, dynamic sitemap, robots, GA, Search Console) |
+| SEO & AEO/GEO | Complete (metadata, JSON-LD, sitemap with stable lastmod, modern AI robots, RSS feed, manifest, dynamic OG image, llms.txt, IndexNow, markdown network) |
 | Git history | 13 commits on `main` (`type(scope): description` style) |
 | Known technical debt | `any` in `src/types/lead.ts:19`; oversized pages (`terms` 1240 lines, `services/[slug]` 603, `industries/[slug]` 556); stubs in `CloudTransition.tsx`, `PageHeader.tsx`, `service-constants.ts` |

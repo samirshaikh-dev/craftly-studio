@@ -38,6 +38,7 @@
 >    - **DevOps & Build Infrastructure:** [agents/skills/devops-engineer/SKILL.md](file:///s:/craftly-studio/agents/skills/devops-engineer/SKILL.md) (Next.js build optimizations, package management via pnpm, deployment configs)
 >    - **AI Integrations & Assistant Systems:** [agents/skills/ai-engineer/SKILL.md](file:///s:/craftly-studio/agents/skills/ai-engineer/SKILL.md) (Future chatbot and CMS AI content assistants)
 >    - **Brand & Entity Profile SEO:** [agents/skills/personal-seo-profile-optimizer/SKILL.md](file:///s:/craftly-studio/agents/skills/personal-seo-profile-optimizer/SKILL.md) (Agency brand entity optimization, knowledge graph alignment)
+>    - **SEO Strategy & Discovery Architecture:** [agents/skills/seo-strategy/SKILL.md](file:///s:/craftly-studio/agents/skills/seo-strategy/SKILL.md) (High-value discovery protocols, IndexNow instant ping, markdown endpoints, AEO/GEO direct-answer architecture)
 > 3. **Evaluate & Comply:** Cross-reference the proposed implementation against `context.md` specs and the loaded skill's engineering principles, constraints, and checklists.
 > 4. **Implement with Justification:** Apply changes in strict accordance with the loaded skill's standards and repository conventions.
 >

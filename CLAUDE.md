@@ -48,6 +48,7 @@ This version (16.2.10) has breaking changes — APIs, conventions, and file stru
 | **DevOps & Build Infrastructure** | [agents/skills/devops-engineer/SKILL.md](file:///s:/craftly-studio/agents/skills/devops-engineer/SKILL.md) | Next.js build optimizations, package management via pnpm, deployment configs |
 | **AI Integrations** | [agents/skills/ai-engineer/SKILL.md](file:///s:/craftly-studio/agents/skills/ai-engineer/SKILL.md) | Chatbots, conversational UI, and CMS AI content assistants |
 | **Brand & Entity Profile SEO** | [agents/skills/personal-seo-profile-optimizer/SKILL.md](file:///s:/craftly-studio/agents/skills/personal-seo-profile-optimizer/SKILL.md) | Agency brand entity optimization, knowledge graph alignment |
+| **SEO Strategy & Discovery** | [agents/skills/seo-strategy/SKILL.md](file:///s:/craftly-studio/agents/skills/seo-strategy/SKILL.md) | High-value discovery protocols, IndexNow instant ping, markdown endpoints, AEO/GEO direct-answer architecture |
 
 ---
 
@@ -99,7 +100,7 @@ pnpm lint          # Run ESLint
 
 Purpose-built agents and skill configurations for this codebase:
 
-- **Discipline Skills:** `agents/skills/` — 12 modular skills defining domain standards for all AI tools.
+- **Discipline Skills:** `agents/skills/` — 13 modular skills defining domain standards for all AI tools.
 - **opencode Subagents:** `.opencode/agent/` — loaded natively by opencode (`frontend`, `admin-cms`, `backend`, `seo`, `ui-ux`, `testing`, `tech-lead`).
 - **Generic AI Prompts:** `agents/generic/` — tool-agnostic definitions for Cursor, Claude Code, GitHub Copilot, ChatGPT, etc.
 

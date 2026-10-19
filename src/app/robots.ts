@@ -19,8 +19,17 @@ export default function robots(): MetadataRoute.Robots {
           "ClaudeBot",
           "anthropic-ai",
           "Claude-Web",
+          "Claude-Search",
           // Perplexity AI
           "PerplexityBot",
+          "Perplexity-Search",
+          // DeepSeek
+          "DeepSeekBot",
+          // Mistral AI
+          "MistralBot",
+          // xAI & Grok
+          "GrokBot",
+          "xAI",
           // Google
           "Googlebot",
           "Google-Extended",
@@ -39,12 +48,15 @@ export default function robots(): MetadataRoute.Robots {
           "Bytespider",
           // Cohere & Other AI Crawlers
           "cohere-ai",
+          "cohere-training-data-crawler",
           "CCBot",
           "YouBot",
           "Diffbot",
           "DuckDuckBot",
+          "Timpibot",
+          "KagiBot",
         ],
-        allow: ["/", "/llms.txt", "/llms-full.txt"],
+        allow: ["/", "/llms.txt", "/llms-full.txt", "/.well-known/llms.txt"],
         disallow: ["/admin/", "/api/"],
       },
     ],

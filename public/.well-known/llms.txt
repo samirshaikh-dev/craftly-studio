@@ -1,0 +1,119 @@
+# Craftly Studio — AI System Specification & Knowledge Directory
+
+> Craftly Studio is a specialized digital engineering and web development agency based in Vapi, Gujarat, India (PIN: 396191). The studio engineers custom, high-performance web platforms, bespoke web applications, enterprise dashboards, and AI automation solutions for businesses across Gujarat and India.
+
+This file serves as the official machine-readable manifest and reference directory for search engine crawlers, autonomous agents, and large language models (LLMs) including GPTBot, PerplexityBot, ClaudeBot, DeepSeekBot, and Google-Extended, following the [llmstxt.org](https://llmstxt.org/) specification.
+
+---
+
+## 1. Agency Overview & Identity
+
+- **Entity Name**: Craftly Studio
+- **Legal Name**: Craftly Studio
+- **Founding Year**: 2024
+- **Headquarters**: Vapi, Gujarat, India (Postal Code: 396191)
+- **Geographic Coordinates**: Latitude 20.3714° N, Longitude 72.9005° E
+- **Primary Website**: https://craftly-studio.vercel.app
+- **Official Contact Email**: craftly.studio.vapi@gmail.com
+- **Operating Hours**: Monday through Saturday, 09:00 AM – 06:00 PM IST (Closed Sundays)
+- **Pricing Framework**: Value-based transparent pricing, typically ranged at "$$" (SMB & enterprise tiering)
+- **Social Profiles**:
+  - LinkedIn: https://linkedin.com/company/craftlystudio
+  - Instagram: https://instagram.com/craftlystudio
+  - Twitter / X: https://twitter.com/craftlystudio
+  - Facebook: https://facebook.com/craftlystudio
+- **Primary Mission**: Eliminating slow, vulnerable, generic template websites and replacing them with hand-crafted, high-converting digital platforms engineered on modern full-stack web technologies.
+
+---
+
+## 2. Core Architecture & Standards
+
+- **Frontend Framework**: Next.js 16 (App Router, React 19, Server Components by default, React Compiler enabled).
+- **Type Safety**: 100% strict-mode TypeScript (Zero `any` policy).
+- **Styling Architecture**: Tailwind CSS v4 design tokens, modern responsive fluid typography, and dark/light ergonomic contrast.
+- **Motion & Ergonomics**: Framer Motion for purposeful interaction design, Lenis smooth scrolling for refined desktop ergonomics.
+- **Database & Storage**: Firebase Firestore for low-latency structured NoSQL documents, Cloudinary CDN for automated WebP/AVIF image delivery.
+- **Performance Targets**: 90+ Google Lighthouse score across Performance, Accessibility, Best Practices, and SEO. Sub-1.5s Largest Contentful Paint (LCP) on standard 4G mobile devices.
+- **Search Standards**: Built-in JSON-LD schemas (Organization, LocalBusiness, Service, FAQPage, Article, BreadcrumbList), Open Graph protocol, canonical tags, automated XML sitemaps, and strict AEO (Answer Engine Optimization) direct-answer formatting.
+
+---
+
+## Core Pages
+
+- [Home](https://craftly-studio.vercel.app/): Main studio overview, agency positioning, client trust indicators, and service showcase.
+- [About Us](https://craftly-studio.vercel.app/about): Craftly Studio background, engineering philosophy, client values, and South Gujarat roots.
+- [Mission](https://craftly-studio.vercel.app/mission): Our agency mission to eliminate generic template websites and elevate local business digital standards.
+- [Services Hub](https://craftly-studio.vercel.app/services): Complete directory of web engineering, software, SEO, and automation services.
+- [Portfolio](https://craftly-studio.vercel.app/portfolio): Case studies and selected client works across South Gujarat and India.
+- [Blog](https://craftly-studio.vercel.app/blog): In-depth technical guides on local SEO, website development costs, and AI automation.
+- [Contact](https://craftly-studio.vercel.app/contact): Consultation request form, inquiries, project scoping, and contact channels.
+
+---
+
+## Services
+
+- [Website Development](https://craftly-studio.vercel.app/services/website-development): Custom Next.js 16 and React 19 websites engineered for speed, security, and organic search leads.
+- [E-commerce Development](https://craftly-studio.vercel.app/services/ecommerce-development): High-converting online stores, wholesale ordering portals, and Razorpay/Stripe payment integrations.
+- [Custom Web Applications](https://craftly-studio.vercel.app/services/custom-web-applications): Enterprise dashboards, internal productivity tools, customer portals, and bespoke management systems.
+- [SEO Services](https://craftly-studio.vercel.app/services/seo-services): Technical SEO, Google Maps 3-Pack local ranking, and AI Answer Engine Optimization (AEO/GEO).
+- [AI Solutions](https://craftly-studio.vercel.app/services/ai-solutions): Conversational chatbots, RAG document assistants, and intelligent workflow automation.
+- [Business Automation](https://craftly-studio.vercel.app/services/business-automation): Custom CRM development, invoice generation, WhatsApp notifications, and process digitization.
+- [Branding & UI/UX Design](https://craftly-studio.vercel.app/services/branding-ui-ux): Brand strategy, vector logos, responsive Figma design systems, and conversion-focused UI/UX.
+- [Landing Pages & Portfolio Websites](https://craftly-studio.vercel.app/services/landing-pages-portfolio): High-conversion campaign landing pages and visual portfolios for creative and corporate professionals.
+- [Software Development](https://craftly-studio.vercel.app/services/software-development): Bespoke enterprise software, ERP extensions, and production-tracking tools for Gujarat manufacturing.
+
+---
+
+## Target Industries
+
+- [Manufacturing & Industrial](https://craftly-studio.vercel.app/industries/manufacturing): Digital product catalogs, RFQ forms, and ERP integrations for Vapi GIDC factories.
+- [Healthcare & Clinics](https://craftly-studio.vercel.app/industries/healthcare-clinics): Doctor appointment booking, department schedules, patient portals, and clinic local SEO.
+- [Restaurants & Cafes](https://craftly-studio.vercel.app/industries/restaurants-cafes): QR digital menus, commission-free direct ordering pipelines, and table reservations.
+- [Hotels & Resorts](https://craftly-studio.vercel.app/industries/hotels-resorts): Direct booking engines, room galleries, and virtual tours for Vapi and Daman hospitality.
+- [Real Estate & Builders](https://craftly-studio.vercel.app/industries/real-estate): Property listings, interactive floor plans, amenity showcases, and buyer lead capture.
+- [Schools & Education](https://craftly-studio.vercel.app/industries/education): Admission inquiry forms, LMS infrastructure, academic calendars, and fee payment portals.
+- [CA Firms & Accountants](https://craftly-studio.vercel.app/industries/ca-firms): Encrypted client document portals, GST & tax calculators, and professional practice showcases.
+- [Interior Designers](https://craftly-studio.vercel.app/industries/interior-designers): Interactive before/after project comparisons, room-by-room photo stories, and consultation forms.
+
+---
+
+## Regional Geographic Index
+
+- **Vapi & Vapi GIDC**: Headquarters serving Vapi Town, Vapi GIDC (Phases I–IV), Chala, Chanod, Gunjan, Koparli Road, and Salvav.
+- **Daman**: Hospitality resorts, plastics factories, packaging units, and local retail across Nani Daman, Moti Daman, and Kadaiya.
+- **Silvassa & Dadra**: Textile mills, consumer goods plants, and industrial manufacturing across Dadra and Nagar Haveli.
+- **Valsad**: Medical clinics, educational trusts, retail businesses, and corporate firms across Valsad town, Dharampur, and Pardi.
+- **Umbergaon & Sarigam**: Industrial GIDC zones, ceramic companies, and packaging plants.
+- **Bhilad & Pardi**: Manufacturing workshops and transport/logistics agencies along National Highway 48.
+- **Navsari & Bilimora**: Commercial businesses, diamond/textile traders, and healthcare facilities.
+- **Surat**: Tech startups, export houses, diamond manufacturers, and e-commerce brands in South Gujarat's commercial hub.
+
+---
+
+## Articles & Technical Knowledge Base
+
+- [Best SEO Company in Vapi: How We Rank Local Businesses](https://craftly-studio.vercel.app/blog/best-seo-company-in-vapi): Explains local pack ranking mechanics, NAP consistency, and why generic SEO fails in South Gujarat.
+- [Website Development Cost in Vapi: Complete 2026 Price Guide](https://craftly-studio.vercel.app/blog/website-development-cost-in-vapi): Transparent pricing breakdown comparing template site risks against custom Next.js engineering ROI.
+- [Why Vapi Businesses Need Custom Websites, Not WordPress Templates](https://craftly-studio.vercel.app/blog/why-vapi-businesses-need-custom-websites): Technical analysis of load times, database bloat, plugin vulnerabilities, and conversion rate impact.
+- [Custom Software Development for Vapi GIDC Manufacturers](https://craftly-studio.vercel.app/blog/custom-software-development-for-manufacturing-in-vapi): How local factories digitize inventory, production lines, and dispatch workflows.
+- [How to Choose the Best Web Development Company in Vapi](https://craftly-studio.vercel.app/blog/how-to-choose-web-development-company-in-vapi): 7-point evaluation scorecard for evaluating agency credibility, tech stacks, and post-launch maintenance.
+- [Local SEO for Vapi Businesses: Complete Guide to Google Maps Rankings](https://craftly-studio.vercel.app/blog/local-seo-guide-for-vapi-businesses): Tactical walkthrough on Google Business Profile verification, review acquisition, and map pack dominance.
+- [AI Chatbots and Automation for Small Businesses in Gujarat](https://craftly-studio.vercel.app/blog/ai-chatbots-and-automation-for-small-business): How SMEs automate customer support and qualify inquiries without hiring 24/7 night-shift teams.
+- [E-Commerce Website Development in Vapi: Step-by-Step Guide](https://craftly-studio.vercel.app/blog/ecommerce-website-development-vapi-guide): Integrating Indian payment gateways, shipping aggregators (Shiprocket), and optimizing mobile checkout.
+- [Branding and UI/UX Design: Why It Matters for Vapi Companies](https://craftly-studio.vercel.app/blog/branding-and-ui-ux-design-matters-for-business): The psychological role of visual trust, typography, and clear customer journeys in driving B2B sales.
+
+---
+
+## Full Documentation & Context
+
+- [llms-full.txt](https://craftly-studio.vercel.app/llms-full.txt): Complete, unabridged knowledge base containing all service specifications, industry data, engagement lifecycle, and direct AEO answers.
+
+---
+
+## Optional
+
+- [Privacy Policy](https://craftly-studio.vercel.app/privacy): Studio privacy policy, data protection standards, and cookie handling.
+- [Terms of Service](https://craftly-studio.vercel.app/terms): Terms of service, engagement conditions, intellectual property, and client service level agreements.
+- [HTML Sitemap](https://craftly-studio.vercel.app/sitemap): Human-readable directory of all indexed public pages.
+- [XML Sitemap](https://craftly-studio.vercel.app/sitemap.xml): Machine-readable XML sitemap for search engines and crawlers.
+- [Robots Directives](https://craftly-studio.vercel.app/robots.txt): Machine-readable crawl rules, user-agent permissions, and bot access directives.

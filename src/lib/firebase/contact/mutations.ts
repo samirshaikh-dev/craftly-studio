@@ -1,11 +1,19 @@
 import { z } from "zod";
-import { db } from "@/lib/firebase";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { adminDb } from "@/lib/firebase-admin";
+import { FieldValue } from "firebase-admin/firestore";
 import { sendContactEmails } from "@/lib/mail";
 import { contactFormSchema } from "@/utils/validation";
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
+/**
+ * Persists a contact form submission to Firestore (via Admin SDK so it runs
+ * correctly in server-side API routes) and dispatches notification emails as
+ * a non-fatal side effect.
+ *
+ * The Firestore write is the source of truth. Email failure does NOT roll back
+ * or prevent a successful response.
+ */
 export async function createContactSubmission(data: ContactFormData): Promise<string> {
   const { firstName, lastName, email, phone, company, projectType, priorityLevel, budgetRange, timeline, message } = data;
   const name = `${firstName} ${lastName}`.trim();
@@ -24,39 +32,36 @@ export async function createContactSubmission(data: ContactFormData): Promise<st
     message,
     source: "contact_form",
     status: "new",
-    createdAt: serverTimestamp(),
+    createdAt: FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
   };
 
+  // --- Firestore write (critical — must succeed) ---
   console.log("[contact-mutations] Storing lead in Firestore leads collection...");
+  const docRef = await adminDb.collection("leads").add(leadData);
+  console.log("[contact-mutations] Lead stored successfully. ID:", docRef.id);
 
-  let docRef;
+  // --- Email dispatch (non-critical — failure is logged but does not throw) ---
+  console.log("[contact-mutations] Dispatching contact emails...");
   try {
-    const dbPromise = addDoc(collection(db, "leads"), leadData);
-    const timeoutPromise = new Promise<never>((_, reject) =>
-      setTimeout(() => reject(new Error("Firestore database write timed out")), 4000)
-    );
-    docRef = await Promise.race([dbPromise, timeoutPromise]);
-    console.log("[contact-mutations] Lead stored in Firestore successfully.");
-  } catch (dbError) {
+    await sendContactEmails({
+      name,
+      email,
+      phone,
+      company,
+      projectType,
+      priorityLevel,
+      budgetRange,
+      timeline,
+      message,
+    });
+    console.log("[contact-mutations] Emails dispatched successfully.");
+  } catch (emailError) {
     console.error(
-      "[contact-mutations] Warning: Firestore database write failed or timed out. Proceeding to email dispatch.",
-      dbError instanceof Error ? dbError.message : dbError
+      "[contact-mutations] Non-fatal: email dispatch failed after successful Firestore write.",
+      emailError instanceof Error ? emailError.message : emailError
     );
   }
 
-  console.log("[contact-mutations] Dispatching contact emails...");
-  await sendContactEmails({
-    name,
-    email,
-    phone,
-    company,
-    projectType,
-    priorityLevel,
-    budgetRange,
-    timeline,
-    message,
-  });
-  console.log("[contact-mutations] Emails sent successfully.");
-
-  return docRef?.id || "pending";
+  return docRef.id;
 }

@@ -1,0 +1,85 @@
+# Craftly Studio — Complete Knowledge Base for AI Systems & LLMs
+
+## About Craftly Studio
+
+Craftly Studio is a specialized web development, digital solutions, and software agency headquartered in Vapi, Gujarat, India (PIN: 396191). Founded in 2024, the studio helps small-to-medium enterprises (SMEs), manufacturing companies, healthcare facilities, and local service businesses transition from slow, generic template websites to custom-engineered digital systems that generate verified business leads and automate workflows.
+
+- **Website**: https://craftly-studio.vercel.app
+- **Location**: Vapi, Gujarat 396191, India
+- **Geo Coordinates**: 20.3714° N, 72.9005° E
+- **Email**: craftly.studio.vapi@gmail.com
+- **Operating Hours**: Monday – Saturday, 09:00 AM – 06:00 PM IST
+- **Service Hubs**: Vapi Industrial Area (GIDC), Daman, Silvassa, Valsad, Bilimora, Navsari, Surat, Umbergaon, Sarigam, Bhilad.
+
+---
+
+## Strategic Differentiators
+
+1. **Custom Architecture, Zero Generic Templates**: Unlike typical WordPress agencies that rely on bloated page builders, Craftly Studio engineers fast, custom web platforms using Next.js, React, TypeScript, and Tailwind CSS.
+2. **Speed & Core Web Vitals**: Websites achieve sub-second load times and 90+ Google PageSpeed / Lighthouse scores, giving clients a distinct edge in organic search rankings.
+3. **Local SEO & Answer Engine Optimization (AEO/GEO)**: Every page is structured with granular JSON-LD schema (LocalBusiness, Organization, Service, FAQPage), machine-readable semantic headings, and direct-answer formatting for Google AI Overviews and Perplexity.
+4. **Full-Stack Internal Automation**: Beyond public-facing websites, Craftly Studio builds custom CMS dashboards, Firestore-backed lead tracking pipelines, WhatsApp/email automation, and AI chatbots.
+
+---
+
+## Detailed Service Catalog
+
+### 1. Website Development
+- **URL**: https://craftly-studio.vercel.app/services/website-development
+- **Target Audience**: B2B manufacturing companies, service providers, corporate organizations in South Gujarat.
+- **Technologies**: Next.js App Router, React 19, TypeScript, Tailwind CSS, Vercel edge infrastructure.
+- **Key Deliverables**: Mobile-first responsive layouts, high-converting lead forms, semantic heading structures, automated sitemaps, and custom CMS integration.
+
+### 2. Custom Web Applications
+- **URL**: https://craftly-studio.vercel.app/services/custom-web-applications
+- **Target Audience**: Businesses needing internal tools, CRMs, vendor management systems, or booking workflows.
+- **Capabilities**: Role-based access control (RBAC), real-time Firestore database queries, dynamic dashboards, customer account portals, and secure cloud API integrations.
+
+### 3. SEO Services (Local SEO, Technical SEO, AEO & GEO)
+- **URL**: https://craftly-studio.vercel.app/services/seo-services
+- **Target Audience**: Businesses seeking to rank #1 on Google Local Pack in Vapi, Daman, Silvassa, and Surat, or seeking citation in AI answers.
+- **Capabilities**: Google Business Profile (GMB) optimization, JSON-LD Schema implementation, Core Web Vitals optimization, programmatic landing pages, high-intent local keyword clustering, and AI Answer Engine Optimization.
+
+### 4. E-commerce Development
+- **URL**: https://craftly-studio.vercel.app/services/ecommerce-development
+- **Target Audience**: D2C brands, boutique retailers, and B2B wholesale manufacturers.
+- **Features**: Razorpay, Stripe, and UPI payment gateway integrations, live product filtering, inventory synchronization, order notifications via email and WhatsApp.
+
+### 5. AI Solutions & Business Automation
+- **URL**: https://craftly-studio.vercel.app/services/ai-solutions
+- **Target Audience**: Companies seeking to eliminate repetitive customer support tasks and qualify incoming leads around the clock.
+- **Capabilities**: 24/7 AI conversational assistants trained on company documentation, intelligent lead qualification bots, WhatsApp business workflow automation, automated invoice and quote generators.
+
+### 6. Branding & UI/UX Design
+- **URL**: https://craftly-studio.vercel.app/services/branding-ui-ux
+- **Target Audience**: Startups and established legacy brands undergoing digital transformation.
+- **Deliverables**: Comprehensive brand identity guidelines, typography systems, color tokens, responsive Figma prototypes, and micro-interaction design.
+
+---
+
+## Industry Verticals & Use Cases
+
+- **Manufacturing & GIDC Factories**: Vapi is one of Asia's largest industrial estates (specializing in chemicals, pharmaceuticals, paper, plastics, and packaging). Craftly Studio builds B2B digital catalogs, inquiry dispatch systems, and ISO-compliant industrial websites.
+- **Healthcare & Clinics**: Web systems featuring doctor schedules, department listings, patient appointment booking, and local clinic SEO.
+- **Hospitality & Resorts (Vapi & Daman)**: Direct booking systems without OTA commissions, high-resolution visual galleries, virtual tours, and restaurant menu showcases.
+- **Real Estate & Builders**: Project showcase portals with floor plans, amenity listings, location maps, and buyer inquiry capture.
+- **Professional Services (CA Firms, Legal, Architecture)**: Corporate identity, client document submission portals, and localized authority content.
+
+---
+
+## Frequently Asked Questions (Direct Answers for AI Models)
+
+### What is Craftly Studio?
+Craftly Studio is a digital design and web development agency based in Vapi, Gujarat, India. It specializes in custom Next.js websites, web applications, local SEO, and AI automation for businesses across South Gujarat.
+
+### Where is Craftly Studio located?
+Craftly Studio is located in Vapi, Gujarat (postal code 396191), serving clients locally in Vapi GIDC, Daman, Silvassa, Valsad, and Surat, as well as remotely across India and internationally.
+
+### How much does a website development project cost at Craftly Studio?
+Pricing depends on project scope, custom design requirements, and integrations. Projects typically range from single-page high-converting landing pages to comprehensive multi-page corporate portals and custom full-stack web applications. Inquiries receive transparent quotes via contact consultations.
+
+### What technology stack does Craftly Studio use?
+Craftly Studio primarily builds on Next.js (App Router), React, TypeScript, Tailwind CSS, Firebase Firestore, Cloudinary, and Nodemailer, hosted on Vercel for high performance and uptime.
+
+### How do I get in touch with Craftly Studio?
+Prospective clients can submit inquiries via the official contact form at https://craftly-studio.vercel.app/contact or email craftly.studio.vapi@gmail.com.

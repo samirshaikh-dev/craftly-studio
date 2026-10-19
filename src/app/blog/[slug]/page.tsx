@@ -5,8 +5,9 @@ import FaqSection from "@/components/sections/FaqSection";
 import FinalCta from "@/components/sections/FinalCta";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
-import { articleSchema, faqSchema } from "@/lib/seo/schemas";
+import { articleSchema, faqSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 import { buildMetadata } from "@/lib/seo/metadata";
+import { SITE_URL } from "@/lib/seo/constants";
 import { BLOG_POSTS, getBlogPost, getRelatedPosts } from "@/lib/blog/posts";
 
 // ─── Static Params ───────────────────────────────────────────────────────────
@@ -57,6 +58,13 @@ export default async function BlogPostPage({ params }: PageProps) {
         })}
       />
       {post.faqs.length > 0 && <JsonLd data={faqSchema(post.faqs)} />}
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Blog", url: `${SITE_URL}/blog` },
+          { name: post.title, url: `${SITE_URL}/blog/${post.slug}` },
+        ])}
+      />
 
       {/* Article Header */}
       <section className="pt-48 pb-16 bg-surface">

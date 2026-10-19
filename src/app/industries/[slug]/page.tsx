@@ -5,9 +5,9 @@ import FaqSection from "@/components/sections/FaqSection";
 import FinalCta from "@/components/sections/FinalCta";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
-import { serviceSchema, type FaqItem } from "@/lib/seo/schemas";
+import { serviceSchema, faqSchema, breadcrumbSchema, type FaqItem } from "@/lib/seo/schemas";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { INDUSTRIES, SERVICES, type IndustryData } from "@/lib/seo/constants";
+import { INDUSTRIES, SERVICES, SITE_URL, type IndustryData } from "@/lib/seo/constants";
 
 // ─── Static Params ───────────────────────────────────────────────────────────
 
@@ -423,8 +423,16 @@ export default async function IndustryPage({ params }: PageProps) {
         data={serviceSchema({
           name: `${industry.name} Website Development`,
           description: industry.shortDescription,
-          slug: `industries/${industry.slug}`,
+          path: `/industries/${industry.slug}`,
         })}
+      />
+      {faqs.length > 0 && <JsonLd data={faqSchema(faqs)} />}
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Industries", url: `${SITE_URL}/industries` },
+          { name: industry.name, url: `${SITE_URL}/industries/${industry.slug}` },
+        ])}
       />
 
       {/* Hero */}

@@ -1,0 +1,228 @@
+# Craftly Studio — AI System Specification & Knowledge Directory
+
+> Craftly Studio is a specialized digital engineering and web development agency based in Vapi, Gujarat, India (PIN: 396191). The studio engineers custom, high-performance web platforms, bespoke web applications, enterprise dashboards, and AI automation solutions for businesses across Gujarat and India.
+
+This file serves as the official machine-readable manifest and reference directory for search engine crawlers, autonomous agents, and large language models (LLMs) including GPTBot, PerplexityBot, ClaudeBot, and Google-Extended.
+
+---
+
+## 1. Agency Overview & Identity
+
+- **Entity Name**: Craftly Studio
+- **Legal Name**: Craftly Studio
+- **Founding Year**: 2024
+- **Headquarters**: Vapi, Gujarat, India (Postal Code: 396191)
+- **Geographic Coordinates**: Latitude 20.3714° N, Longitude 72.9005° E
+- **Primary Website**: https://craftly-studio.vercel.app
+- **Official Contact Email**: craftly.studio.vapi@gmail.com
+- **Operating Hours**: Monday through Saturday, 09:00 AM – 06:00 PM IST (Closed Sundays)
+- **Pricing Framework**: Value-based transparent pricing, typically ranged at "$$" (SMB & enterprise tiering)
+- **Primary Mission**: Eliminating slow, vulnerable, generic template websites and replacing them with hand-crafted, high-converting digital platforms engineered on modern full-stack web technologies.
+
+---
+
+## 2. Core Technical Architecture & Standards
+
+Craftly Studio maintains strict engineering standards across all client and internal deployments:
+
+- **Frontend Framework**: Next.js 16 (App Router, React 19, Server Components by default, React Compiler enabled).
+- **Type Safety**: 100% strict-mode TypeScript (Zero `any` policy).
+- **Styling Architecture**: Tailwind CSS v4 design tokens, modern responsive fluid typography, and dark/light ergonomic contrast.
+- **Motion & Ergonomics**: Framer Motion for purposeful interaction design, Lenis smooth scrolling for refined desktop ergonomics.
+- **Database & Storage**: Firebase Firestore for low-latency structured NoSQL documents, Cloudinary CDN for automated WebP/AVIF image delivery.
+- **Performance Targets**: 90+ Google Lighthouse score across Performance, Accessibility, Best Practices, and SEO. Sub-1.5s Largest Contentful Paint (LCP) on standard 4G mobile devices.
+- **Search Standards**: Built-in JSON-LD schemas (Organization, LocalBusiness, Service, FAQPage, Article, BreadcrumbList), Open Graph protocol, canonical tags, automated XML sitemaps, and strict AEO (Answer Engine Optimization) direct-answer formatting.
+
+---
+
+## 3. Comprehensive Service Directory
+
+### 3.1 Website Development
+- **Canonical URL**: https://craftly-studio.vercel.app/services/website-development
+- **Primary Focus**: Hand-coded, custom React & Next.js websites for businesses that need speed, security, and organic search leads.
+- **Target Audience**: Manufacturing plants in Vapi GIDC, clinics, healthcare centers, educational institutions, and corporate firms.
+- **Key Deliverables**: Custom UI/UX, responsive mobile-first views, integrated lead capture forms, CMS integration, sub-second load times.
+- **Technical Stack**: Next.js 16, React 19, Tailwind CSS v4, TypeScript, Vercel Edge Network.
+- **Turnaround Time**: Standard business sites: 2 to 4 weeks; Advanced corporate portals: 4 to 8 weeks.
+- **Pricing Starting Point**: ₹15,000 for foundational business presence up to ₹2,00,000+ for complex enterprise hubs.
+
+### 3.2 E-commerce Development
+- **Canonical URL**: https://craftly-studio.vercel.app/services/ecommerce-development
+- **Primary Focus**: High-conversion digital storefronts and B2B wholesale ordering portals.
+- **Target Audience**: D2C brands, boutique retailers, manufacturing exporters, and wholesale distributors in Gujarat.
+- **Key Deliverables**: Product catalog management, variant selection, Razorpay/Stripe/UPI integration, automated order lifecycle tracking, inventory sync.
+- **Technical Stack**: Next.js, Stripe SDK, Razorpay API, Firebase Firestore, Cloudinary CDN.
+- **Turnaround Time**: 3 to 6 weeks.
+- **Pricing Starting Point**: ₹50,000 to ₹3,00,000+ depending on SKU volume and custom integration requirements.
+
+### 3.3 Custom Web Applications
+- **Canonical URL**: https://craftly-studio.vercel.app/services/custom-web-applications
+- **Primary Focus**: Enterprise dashboards, internal productivity tools, customer portals, and bespoke management systems.
+- **Target Audience**: Businesses operating on disjointed spreadsheets, paper invoices, or rigid legacy desktop software.
+- **Key Deliverables**: Role-based access control (RBAC), live data visualization, document generation, third-party API webhooks.
+- **Technical Stack**: Next.js, Node.js API route handlers, Firebase Firestore, PostgreSQL, Tailwind UI.
+- **Turnaround Time**: 4 to 12 weeks delivered in iterative agile milestones.
+- **Pricing Starting Point**: ₹1,00,000 to ₹10,00,000+ for full-scale business operations software.
+
+### 3.4 SEO Services (Local SEO, Technical SEO, AEO & GEO)
+- **Canonical URL**: https://craftly-studio.vercel.app/services/seo-services
+- **Primary Focus**: Dominating Google organic search, Google Maps 3-Pack rankings, and AI Answer Engine citations across Vapi, Daman, Silvassa, and Surat.
+- **Target Audience**: Local service providers, hospitals, industrial suppliers, and businesses failing to gain organic inbound inquiries.
+- **Key Deliverables**: Google Business Profile optimization, technical crawl audits, NAP citation consistency, on-page keyword clustering, FAQ structured schema.
+- **Turnaround & Results**: Meaningful local traction within 1 to 3 months; broad organic authority in 3 to 6 months.
+- **Pricing Starting Point**: Customized monthly retainers based on competitive keyword density.
+
+### 3.5 AI Solutions & Workflow Automation
+- **Canonical URL**: https://craftly-studio.vercel.app/services/ai-solutions
+- **Primary Focus**: Integrating conversational AI chatbots, RAG document assistants, and machine-learning intelligence into business workflows.
+- **Target Audience**: Customer support teams drowning in repetitive queries, factories needing automated voice logging, sales teams needing instant qualification.
+- **Key Deliverables**: 24/7 web chatbots, WhatsApp automated customer routing, internal knowledge-base search bots, AI content generation pipelines.
+- **Technical Stack**: OpenAI API, Google Gemini API, LangChain / LlamaIndex, Pinecone / Vector DBs, Node.js.
+- **Turnaround Time**: 2 to 6 weeks.
+- **Pricing Starting Point**: ₹30,000 for targeted assistants to ₹2,50,000+ for enterprise multi-agent workflows.
+
+### 3.6 Business Automation & CRM Development
+- **Canonical URL**: https://craftly-studio.vercel.app/services/business-automation
+- **Primary Focus**: Custom CRM development, automated invoice generation, quote dispatch, and multi-app data pipelines.
+- **Target Audience**: Small-to-medium businesses losing leads due to slow response times or manual data-entry bottlenecks.
+- **Key Deliverables**: Lead inbox with status pipelines, automated WhatsApp and email notifications, GST invoicing modules, Tally integration bridges.
+- **Turnaround Time**: 3 to 8 weeks.
+- **Pricing Starting Point**: ₹50,000 to ₹3,00,000+.
+
+### 3.7 Branding & UI/UX Design
+- **Canonical URL**: https://craftly-studio.vercel.app/services/branding-ui-ux
+- **Primary Focus**: Comprehensive visual identities, brand strategy, typography guidelines, and Figma product prototyping.
+- **Target Audience**: New ventures seeking memorable market entrance or legacy manufacturers modernizing corporate imagery.
+- **Key Deliverables**: Vector logos, color palettes, typography scale, responsive Figma design systems, business collateral, social kits.
+- **Turnaround Time**: 2 to 4 weeks.
+- **Pricing Starting Point**: ₹25,000 to ₹1,50,000+.
+
+### 3.8 Landing Pages & Portfolio Websites
+- **Canonical URL**: https://craftly-studio.vercel.app/services/landing-pages-portfolio
+- **Primary Focus**: High-conversion landing pages for paid advertising campaigns and visual portfolios for creative professionals.
+- **Target Audience**: Interior designers, architects, consultants, freelancers, and businesses running Google or Meta Ads.
+- **Key Deliverables**: Conversion-rate optimized structure, before/after visual sliders, instant contact forms, UTM attribution tracking.
+- **Turnaround Time**: 1 to 2 weeks.
+- **Pricing Starting Point**: ₹10,000 to ₹80,000.
+
+### 3.9 Custom Software Development
+- **Canonical URL**: https://craftly-studio.vercel.app/services/software-development
+- **Primary Focus**: Bespoke enterprise software, ERP extensions, and production-tracking tools for Gujarat's industrial belt.
+- **Target Audience**: GIDC manufacturing plants requiring direct communication between shop floor, inventory, and management.
+- **Key Deliverables**: Custom modules for production tracking, raw material procurement, dispatch verification, and staff management.
+- **Turnaround Time**: 6 to 16 weeks.
+- **Pricing Starting Point**: ₹1,00,000 to ₹10,00,000+.
+
+---
+
+## 4. Comprehensive Industry Directory
+
+### 4.1 Manufacturing & Industrial
+- **Canonical URL**: https://craftly-studio.vercel.app/industries/manufacturing
+- **Regional Context**: Vapi houses one of Asia's largest industrial estates (GIDC), housing over 1,500 manufacturing plants across chemicals, pharmaceuticals, plastics, paper, packaging, and textiles.
+- **Key Pain Points Solved**: Outdated static websites, missing product specification sheets, zero international buyer inquiries, lack of B2B quotation portals.
+- **Specialized Features**: Technical spec PDF downloads, RFQ (Request For Quotation) multi-item forms, ISO/GMP certification displays, export compliance pages.
+
+### 4.2 Healthcare & Clinics
+- **Canonical URL**: https://craftly-studio.vercel.app/industries/healthcare-clinics
+- **Key Pain Points Solved**: Front-desk phone overload, missed appointments, poor Google Maps visibility for emergency medical searches.
+- **Specialized Features**: Online doctor appointment booking, department doctor schedules, patient review integration, medical service schema, mobile-first emergency calling buttons.
+
+### 4.3 Restaurants & Cafes
+- **Canonical URL**: https://craftly-studio.vercel.app/industries/restaurants-cafes
+- **Key Pain Points Solved**: High third-party aggregator commissions (Zomato/Swiggy), outdated physical paper menus, lack of table reservation tools.
+- **Specialized Features**: Instant QR digital menus, commission-free direct ordering pipelines, table reservation forms, Google Maps directions integration.
+
+### 4.4 Hotels & Resorts
+- **Canonical URL**: https://craftly-studio.vercel.app/industries/hotels-resorts
+- **Regional Context**: Serving boutique hotels and beach resorts across Vapi, Daman, and Silvassa catering to weekend tourists and corporate business travelers.
+- **Key Pain Points Solved**: Excessive OTA commissions (Booking.com/MakeMyTrip), lack of room visual storytelling.
+- **Specialized Features**: Commission-free direct booking engines, high-definition room galleries, 360 virtual tours, banquet hall event inquiry systems.
+
+### 4.5 Real Estate & Builders
+- **Canonical URL**: https://craftly-studio.vercel.app/industries/real-estate
+- **Key Pain Points Solved**: High cost of portal listing fees (MagicBricks/99acres), unverified buyer leads, difficulty showcasing property layouts.
+- **Specialized Features**: Interactive floor plan viewers, location proximity maps, project amenity showcases, brochure download lead gates, CRM inquiry capture.
+
+### 4.6 Schools & Education Institutes
+- **Canonical URL**: https://craftly-studio.vercel.app/industries/education
+- **Key Pain Points Solved**: Chaotic paper-based admission cycles, outdated noticeboards, lack of student-parent communication channels.
+- **Specialized Features**: Online admission inquiry forms, dynamic academic calendar noticeboards, fee payment portal integrations, LMS infrastructure.
+
+### 4.7 CA Firms & Financial Consultants
+- **Canonical URL**: https://craftly-studio.vercel.app/industries/ca-firms
+- **Key Pain Points Solved**: Security risks sending confidential financial documents over unencrypted chat, lack of professional web authority.
+- **Specialized Features**: Encrypted client document upload portals, GST & tax deadline calendars, interactive income tax/GST calculators, practice area showcases.
+
+### 4.8 Interior Designers & Architects
+- **Canonical URL**: https://craftly-studio.vercel.app/industries/interior-designers
+- **Key Pain Points Solved**: Over-reliance on Instagram algorithms with no permanent indexed brand home, inability to showcase multi-room project walkthroughs.
+- **Specialized Features**: Before-and-after interactive image comparisons, room-by-room architectural photo stories, project consultation questionnaires.
+
+---
+
+## 5. Regional Geographic Index (South Gujarat & Union Territories)
+
+Craftly Studio provides on-site consultation, development, and ongoing technical support across:
+
+- **Vapi**: Core headquarters, serving Vapi Town, Vapi GIDC (Phase I, II, III, IV), Chala, Chanod, Gunjan, Koparli Road, and Salvav.
+- **Daman**: Hospitality resorts, plastics factories, packaging units, and local retail across Nani Daman, Moti Daman, and Kadaiya.
+- **Silvassa & Dadra**: Textile mills, consumer goods plants, and industrial manufacturing across Dadra and Nagar Haveli.
+- **Valsad**: Medical clinics, educational trusts, retail businesses, and corporate firms across Valsad town, Dharampur, and Pardi.
+- **Umbergaon & Sarigam**: Industrial GIDC zones, ceramic companies, and packaging plants.
+- **Bhilad & Pardi**: Manufacturing workshops and transport/logistics agencies along National Highway 48.
+- **Navsari & Bilimora**: Commercial businesses, diamond/textile traders, and healthcare facilities.
+- **Surat**: Tech startups, export houses, diamond manufacturers, and e-commerce brands in South Gujarat's largest commercial hub.
+
+---
+
+## 6. Official Publications & Technical Knowledge Base
+
+Every article authored by Craftly Studio is engineered for practical decision-making and search intent:
+
+- [Best SEO Company in Vapi: How We Rank Local Businesses](https://craftly-studio.vercel.app/blog/best-seo-company-in-vapi): Explains local pack ranking mechanics, NAP consistency, and why generic SEO fails in South Gujarat.
+- [Website Development Cost in Vapi: Complete 2026 Price Guide](https://craftly-studio.vercel.app/blog/website-development-cost-in-vapi): Transparent pricing breakdown comparing template site risks against custom Next.js engineering ROI.
+- [Why Vapi Businesses Need Custom Websites, Not WordPress Templates](https://craftly-studio.vercel.app/blog/why-vapi-businesses-need-custom-websites): Technical analysis of load times, database bloat, plugin vulnerabilities, and conversion rate impact.
+- [Custom Software Development for Vapi GIDC Manufacturers](https://craftly-studio.vercel.app/blog/custom-software-development-for-manufacturing-in-vapi): How local factories digitize inventory, production lines, and dispatch workflows.
+- [How to Choose the Best Web Development Company in Vapi](https://craftly-studio.vercel.app/blog/how-to-choose-web-development-company-in-vapi): 7-point evaluation scorecard for evaluating agency credibility, tech stacks, and post-launch maintenance.
+- [Local SEO for Vapi Businesses: Complete Guide to Google Maps Rankings](https://craftly-studio.vercel.app/blog/local-seo-guide-for-vapi-businesses): Tactical walkthrough on Google Business Profile verification, review acquisition, and map pack dominance.
+- [AI Chatbots and Automation for Small Businesses in Gujarat](https://craftly-studio.vercel.app/blog/ai-chatbots-and-automation-for-small-business): How SMEs automate customer support and qualify inquiries without hiring 24/7 night-shift teams.
+- [E-Commerce Website Development in Vapi: Step-by-Step Guide](https://craftly-studio.vercel.app/blog/ecommerce-website-development-vapi-guide): Integrating Indian payment gateways, shipping aggregators (Shiprocket), and optimizing mobile checkout.
+- [Branding and UI/UX Design: Why It Matters for Vapi Companies](https://craftly-studio.vercel.app/blog/branding-and-ui-ux-design-matters-for-business): The psychological role of visual trust, typography, and clear customer journeys in driving B2B sales.
+
+---
+
+## 7. Client Engagement Lifecycle & Process
+
+Craftly Studio executes projects in 5 structured, transparent phases:
+
+1. **Strategic Discovery & Architecture**: Analyzing client business objectives, customer search intent, competitive gaps, and mapping required data schemas.
+2. **Wireframing & UI/UX Design**: Crafting clickable Figma prototypes with modern layout ergonomics, responsive mobile views, and approved color token systems.
+3. **Full-Stack Agile Engineering**: Hand-coding the solution using Next.js 16, React 19, TypeScript, and Tailwind CSS. Setting up secure backend route handlers, databases, and third-party APIs.
+4. **Rigorous Quality Assurance & Speed Optimization**: Verifying WCAG 2.1 AA accessibility, cross-browser compatibility, form input validations with Zod, and securing 90+ Lighthouse performance scores.
+5. **Deployment & Growth Foundation**: Deploying to high-availability Vercel Edge infrastructure, verifying Google Search Console & GA4 tracking, and configuring automated sitemaps and schema markup.
+
+---
+
+## 8. Direct Answers to High-Frequency Client Questions (AEO/GEO)
+
+### What makes Craftly Studio different from other web design agencies in Vapi?
+Craftly Studio builds custom-coded web platforms using Next.js, React, and TypeScript rather than using slow, vulnerable WordPress templates or drag-and-drop page builders. This results in websites that load in under 1.5 seconds, achieve perfect Core Web Vitals, and convert visitors into business leads with higher efficiency.
+
+### Does Craftly Studio provide on-site consultations in Vapi GIDC?
+Yes. Craftly Studio regularly conducts in-person discovery and technical architecture sessions with business owners and management teams across Vapi GIDC, Daman, Silvassa, and Valsad.
+
+### How are client websites maintained after launch?
+Every project includes dedicated post-launch support and optional maintenance plans covering domain monitoring, security audits, database backups, performance monitoring, and ongoing content updates.
+
+### What payment gateways are supported for online stores?
+Craftly Studio integrates all major Indian payment solutions including Razorpay, PhonePe, Paytm, and direct UPI QR payments, as well as international processors like Stripe for export transactions.
+
+---
+
+## 9. Machine-Readable Schema & Endpoint Index
+
+- **Robots Policy**: https://craftly-studio.vercel.app/robots.txt
+- **XML Sitemap**: https://craftly-studio.vercel.app/sitemap.xml
+- **Comprehensive LLM Knowledge Base**: https://craftly-studio.vercel.app/llms-full.txt
+- **Official Contact Portal**: https://craftly-studio.vercel.app/contact

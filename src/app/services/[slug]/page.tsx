@@ -5,9 +5,9 @@ import FaqSection from "@/components/sections/FaqSection";
 import FinalCta from "@/components/sections/FinalCta";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
-import { serviceSchema, type FaqItem } from "@/lib/seo/schemas";
+import { serviceSchema, faqSchema, breadcrumbSchema, type FaqItem } from "@/lib/seo/schemas";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { SERVICES, INDUSTRIES, type ServiceData } from "@/lib/seo/constants";
+import { SERVICES, INDUSTRIES, SITE_URL, type ServiceData } from "@/lib/seo/constants";
 
 // ─── Static Params ───────────────────────────────────────────────────────────
 
@@ -510,6 +510,14 @@ export default async function ServicePage({ params }: PageProps) {
           slug: service.slug,
         })}
       />
+      {faqs.length > 0 && <JsonLd data={faqSchema(faqs)} />}
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Services", url: `${SITE_URL}/services` },
+          { name: service.name, url: `${SITE_URL}/services/${service.slug}` },
+        ])}
+      />
 
       {/* Hero */}
       <section className="pt-48 pb-24 bg-bg-inverse text-white">
@@ -545,17 +553,48 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Introduction */}
+      {/* Introduction & AEO Direct Answer Summary */}
       {content && (
         <section className="py-24 bg-white">
           <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-            <div className="max-w-3xl">
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
-                {service.name} for Businesses in Vapi & Gujarat
-              </h2>
-              <p className="text-lg text-on-surface-variant leading-relaxed">
-                {content.intro}
-              </p>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+              <div className="lg:col-span-7">
+                <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+                  {service.name} for Businesses in Vapi & Gujarat
+                </h2>
+                <p className="text-lg text-on-surface-variant leading-relaxed">
+                  {content.intro}
+                </p>
+              </div>
+
+              {/* AEO / GEO Direct Answer Callout */}
+              <div className="lg:col-span-5 p-6 md:p-8 bg-surface rounded-3xl border border-outline shadow-sm">
+                <div className="flex items-center gap-2 mb-4 text-accent font-semibold text-sm uppercase tracking-wider">
+                  <span className="material-symbols-outlined text-lg">bolt</span>
+                  Quick Direct Answer
+                </div>
+                <h3 className="font-display text-xl font-bold mb-4 text-on-surface">
+                  {service.name} at a Glance
+                </h3>
+                <dl className="space-y-3 text-sm">
+                  <div>
+                    <dt className="text-on-surface-variant font-medium">Primary Focus & Regions</dt>
+                    <dd className="text-on-surface font-semibold">Vapi, Daman, Silvassa, Valsad, Surat & South Gujarat</dd>
+                  </div>
+                  <div>
+                    <dt className="text-on-surface-variant font-medium">Typical Turnaround</dt>
+                    <dd className="text-on-surface font-semibold">2–4 Weeks (Agile Sprint Delivery)</dd>
+                  </div>
+                  <div>
+                    <dt className="text-on-surface-variant font-medium">Core Architecture</dt>
+                    <dd className="text-on-surface font-semibold">Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS</dd>
+                  </div>
+                  <div>
+                    <dt className="text-on-surface-variant font-medium">Standard Inclusions</dt>
+                    <dd className="text-on-surface font-semibold">Mobile-First, 90+ Lighthouse Score, Local & FAQ JSON-LD Schema</dd>
+                  </div>
+                </dl>
+              </div>
             </div>
           </div>
         </section>

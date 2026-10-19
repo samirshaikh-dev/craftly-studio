@@ -112,17 +112,22 @@ export function websiteSchema() {
 interface ServiceSchemaInput {
   name: string;
   description: string;
-  slug: string;
+  slug?: string;
+  path?: string;
 }
 
 export function serviceSchema(service: ServiceSchemaInput) {
+  const url = service.path
+    ? `${SITE_URL}${service.path.startsWith("/") ? service.path : `/${service.path}`}`
+    : `${SITE_URL}/services/${service.slug || ""}`;
+
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${SITE_URL}/services/${service.slug}/#service`,
+    "@id": `${url}/#service`,
     name: service.name,
     description: service.description,
-    url: `${SITE_URL}/services/${service.slug}`,
+    url,
     provider: {
       "@id": `${SITE_URL}/#organization`,
     },

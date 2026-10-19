@@ -65,12 +65,12 @@ Craftly Studio solves this by providing:
 | Dashboard | `/admin` | Stats overview (blog/media counts, lead counts) |
 | Blog Management | `/admin/blog` | List, create (`/new`), edit (`/[slug]/edit`) — Firestore CRUD |
 | Inquiries | `/admin/inquiries` | Lead inbox with status (new/contacted/converted) |
+| Testimonials | `/admin/testimonials` | List, create, edit modal, quick toggle status/featured, delete — Firestore CRUD |
 | Media Management | `/admin/media` | Cloudinary upload, list, delete + Firestore metadata |
 
 **Planned / Not yet built (admin):**
 - Service Management `/admin/services`
 - Portfolio Management `/admin/portfolio`
-- Testimonial Management `/admin/testimonials`
 - SEO Settings `/admin/seo`
 
 ### API Routes — Implemented
@@ -80,6 +80,9 @@ Craftly Studio solves this by providing:
 | `/api/contact` | `POST` | Zod-validated lead → Firestore `leads` + Nodemailer emails |
 | `/api/media` | `POST` | Cloudinary upload + Firestore `media` record |
 | `/api/media/[id]` | `DELETE` | Remove Cloudinary asset + Firestore doc |
+| `/api/admin/testimonials` | `GET`, `POST` | List and create testimonials (Zod validated) |
+| `/api/admin/testimonials/[id]` | `GET`, `PATCH`, `DELETE` | Read, update, and remove testimonial documents |
+| `/api/testimonials` | `GET` | Public fetch of published / featured testimonials |
 
 ### Email — Implemented
 
@@ -324,11 +327,28 @@ craftly-studio/
 | publicId | string | Cloudinary public ID (for deletion) |
 | createdAt | timestamp | Upload date |
 
+### `testimonials` — Implemented
+| Field | Type | Description |
+|-------|------|-------------|
+| id | string | Document ID (auto-generated) |
+| author | string | Client or author name |
+| role | string | Role or designation |
+| company | string | Company or organization name (optional) |
+| quote | string | Testimonial text / review |
+| rating | number | Score between 1 and 5 |
+| avatar | string | Profile photo URL (optional) |
+| initials | string | Fallback initials (auto-calculated from author) |
+| gradient | string | Tailwind gradient for initials fallback |
+| status | string | `published` or `draft` |
+| featured | boolean | Whether to showcase on homepage testimonial slider |
+| order | number | Sort priority sequence |
+| createdAt | timestamp | Creation date (serverTimestamp) |
+| updatedAt | timestamp | Last updated date (serverTimestamp) |
+
 ### Planned Collections (not yet implemented)
 - `users` — admin users with roles (`admin`/`editor`)
 - `services` — service CRUD
 - `portfolio` — case studies
-- `testimonials` — client reviews
 - `pages` / `settings` — CMS-managed page content and site settings
 
 ---

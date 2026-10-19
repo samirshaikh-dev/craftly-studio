@@ -1,11 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
-const TESTIMONIALS = [
+interface TestimonialItem {
+  id?: string;
+  quote: string;
+  author: string;
+  role: string;
+  company?: string;
+  avatar?: string;
+  initials?: string;
+  gradient?: string;
+}
+
+const DEFAULT_TESTIMONIALS: TestimonialItem[] = [
   {
     quote: "Craftly Studio transformed our digital presence. We saw more high-value inquiries in the first month than we did the entire previous year. Their engineering depth is unmatched.",
     author: "Rajesh Mehta",
@@ -31,17 +42,41 @@ const TESTIMONIALS = [
 ];
 
 export default function TestimonialSection() {
+  const [items, setItems] = useState<TestimonialItem[]>(DEFAULT_TESTIMONIALS);
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0); // -1 for left, 1 for right
 
+  useEffect(() => {
+    let cancelled = false;
+    async function loadTestimonials() {
+      try {
+        const res = await fetch("/api/testimonials?featured=true");
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!cancelled && data.testimonials && data.testimonials.length > 0) {
+          setItems(data.testimonials);
+        }
+      } catch {
+        // Fallback to static defaults
+      }
+    }
+    loadTestimonials();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const total = items.length;
+  const activeIndex = index >= total ? 0 : index;
+
   const nextTestimonial = () => {
     setDirection(1);
-    setIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+    setIndex((prev) => (prev + 1) % total);
   };
 
   const prevTestimonial = () => {
     setDirection(-1);
-    setIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
+    setIndex((prev) => (prev - 1 + total) % total);
   };
 
   // Variants for slide and fade animation
@@ -68,7 +103,8 @@ export default function TestimonialSection() {
     }),
   };
 
-  const current = TESTIMONIALS[index];
+  const current = items[activeIndex] || DEFAULT_TESTIMONIALS[0];
+  const roleDisplay = current.company ? `${current.role}, ${current.company}` : current.role;
 
   return (
     <section className="py-24 md:py-32 bg-surface overflow-hidden relative">
@@ -88,7 +124,7 @@ export default function TestimonialSection() {
           <div className="min-h-[220px] flex items-center justify-center w-full mb-12 relative">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
-                key={index}
+                key={activeIndex}
                 custom={direction}
                 variants={slideVariants}
                 initial="enter"
@@ -111,15 +147,15 @@ export default function TestimonialSection() {
                         className="object-cover" 
                       />
                     ) : (
-                      <div className={`w-full h-full bg-gradient-to-br ${current.gradient} flex items-center justify-center text-white font-extrabold text-lg`}>
-                        {current.initials}
+                      <div className={`w-full h-full bg-gradient-to-br ${current.gradient || "from-emerald-400 to-teal-500"} flex items-center justify-center text-white font-extrabold text-lg`}>
+                        {current.initials || current.author.slice(0, 2).toUpperCase()}
                       </div>
                     )}
                   </div>
                   
                   {/* Author detail */}
                   <p className="font-bold text-on-surface text-lg">{current.author}</p>
-                  <p className="text-xs font-bold text-on-surface-variant uppercase tracking-wider mt-0.5">{current.role}</p>
+                  <p className="text-xs font-bold text-on-surface-variant uppercase tracking-wider mt-0.5">{roleDisplay}</p>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -137,15 +173,15 @@ export default function TestimonialSection() {
 
             {/* Indicator Dots */}
             <div className="flex gap-2">
-              {TESTIMONIALS.map((_, i) => (
+              {items.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => {
-                    setDirection(i > index ? 1 : -1);
+                    setDirection(i > activeIndex ? 1 : -1);
                     setIndex(i);
                   }}
                   className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                    i === index ? "bg-accent w-6" : "bg-neutral-300 hover:bg-neutral-400"
+                    i === activeIndex ? "bg-accent w-6" : "bg-neutral-300 hover:bg-neutral-400"
                   }`}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />

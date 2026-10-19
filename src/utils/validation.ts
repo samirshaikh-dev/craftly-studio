@@ -33,3 +33,17 @@ export const updateLeadSchema = z.object({
   notes: z.string().trim().max(2000, "Notes cannot exceed 2000 characters").optional(),
 });
 
+export const testimonialSchema = z.object({
+  author: z.string().trim().min(1, "Author name is required").max(100, "Author name is too long"),
+  role: z.string().trim().min(1, "Role/Designation is required").max(150, "Role is too long"),
+  company: z.string().trim().max(100, "Company name is too long").optional().or(z.literal("")),
+  quote: z.string().trim().min(10, "Quote must be at least 10 characters").max(1000, "Quote is too long"),
+  rating: z.number().min(1, "Rating must be at least 1").max(5, "Rating cannot exceed 5"),
+  avatar: z.string().trim().url("Avatar must be a valid URL").optional().or(z.literal("")),
+  initials: z.string().trim().max(5, "Initials too long").optional().or(z.literal("")),
+  gradient: z.string().trim().optional().or(z.literal("")),
+  status: z.enum(["draft", "published"]),
+  featured: z.boolean(),
+  order: z.number(),
+});
+

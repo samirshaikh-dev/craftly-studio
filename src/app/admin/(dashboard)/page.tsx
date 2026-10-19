@@ -4,26 +4,30 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { getBlogPosts } from "@/lib/firebase/blog";
 import { getLeadsCount, getNewLeadsCount } from "@/lib/firebase/lead";
+import { getTestimonialsCount } from "@/lib/firebase/testimonial";
 
 export default function AdminDashboardPage() {
   const [blogCount, setBlogCount] = useState<number | null>(null);
   const [totalInquiries, setTotalInquiries] = useState<number | null>(null);
   const [newInquiries, setNewInquiries] = useState<number | null>(null);
+  const [testimonialCount, setTestimonialCount] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let cancelled = false;
     const load = async () => {
       try {
-        const [posts, inquiries, newLeads] = await Promise.allSettled([
+        const [posts, inquiries, newLeads, testimonials] = await Promise.allSettled([
           getBlogPosts(),
           getLeadsCount(),
           getNewLeadsCount(),
+          getTestimonialsCount(),
         ]);
         if (!cancelled) {
           setBlogCount(posts.status === "fulfilled" ? posts.value.length : 0);
           setTotalInquiries(inquiries.status === "fulfilled" ? inquiries.value : 0);
           setNewInquiries(newLeads.status === "fulfilled" ? newLeads.value : 0);
+          setTestimonialCount(testimonials.status === "fulfilled" ? testimonials.value.published : 0);
         }
       } catch (err) {
         console.error("Failed to load dashboard stats:", err);
@@ -47,6 +51,13 @@ export default function AdminDashboardPage() {
       live: true,
       highlight: (newInquiries ?? 0) > 0,
     },
+    {
+      label: "Live Testimonials",
+      value: testimonialCount,
+      icon: "reviews",
+      live: true,
+      highlight: false,
+    },
   ];
 
   return (
@@ -55,7 +66,7 @@ export default function AdminDashboardPage() {
         <h1 className="font-display text-3xl font-bold">Dashboard</h1>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {statCards.map((stat) => (
           <div
             key={stat.label}
@@ -93,7 +104,7 @@ export default function AdminDashboardPage() {
 
       <div className="bg-surface border border-outline rounded-2xl p-6">
         <h2 className="font-display text-xl font-bold mb-4">Quick Actions</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <Link
             href="/admin/inquiries"
             className="flex items-center gap-3 p-4 rounded-xl border border-outline hover:border-accent hover:bg-accent/5 transition-colors"
@@ -107,6 +118,13 @@ export default function AdminDashboardPage() {
           >
             <span className="material-symbols-outlined text-accent">add</span>
             <span className="font-bold text-sm">New Blog Post</span>
+          </Link>
+          <Link
+            href="/admin/testimonials"
+            className="flex items-center gap-3 p-4 rounded-xl border border-outline hover:border-accent hover:bg-accent/5 transition-colors"
+          >
+            <span className="material-symbols-outlined text-accent">star</span>
+            <span className="font-bold text-sm">Manage Testimonials</span>
           </Link>
           <Link
             href="/admin/media"

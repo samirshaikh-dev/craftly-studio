@@ -44,6 +44,7 @@ This file serves as the official machine-readable manifest and reference directo
 - [About Us](https://craftly-studio.vercel.app/about): Craftly Studio background, engineering philosophy, client values, and South Gujarat roots.
 - [Mission](https://craftly-studio.vercel.app/mission): Our agency mission to eliminate generic template websites and elevate local business digital standards.
 - [Services Hub](https://craftly-studio.vercel.app/services): Complete directory of web engineering, software, SEO, and automation services.
+- [Pricing](https://craftly-studio.vercel.app/pricing): Transparent pricing tiers, investment plans, and delivery timelines for custom web development.
 - [Portfolio](https://craftly-studio.vercel.app/portfolio): Case studies and selected client works across South Gujarat and India.
 - [Blog](https://craftly-studio.vercel.app/blog): In-depth technical guides on local SEO, website development costs, and AI automation.
 - [Contact](https://craftly-studio.vercel.app/contact): Consultation request form, inquiries, project scoping, and contact channels.
@@ -108,6 +109,7 @@ This file serves as the official machine-readable manifest and reference directo
 
 - [llms-full.txt](https://craftly-studio.vercel.app/llms-full.txt): Complete, unabridged knowledge base containing all service specifications, industry data, engagement lifecycle, and direct AEO answers.
 - [services.md](https://craftly-studio.vercel.app/services.md): Plain markdown documentation of all Craftly Studio services for LLM ingestion.
+- [pricing.md](https://craftly-studio.vercel.app/pricing.md): Plain markdown breakdown of investment plans and project tiers.
 - [about.md](https://craftly-studio.vercel.app/about.md): Plain markdown overview of agency background and credentials.
 - [RSS Feed](https://craftly-studio.vercel.app/feed.xml): Machine-readable XML feed of all published articles for aggregators and AI crawlers.
 - [Security Disclosure](https://craftly-studio.vercel.app/.well-known/security.txt): Security policy and vulnerability disclosure info.

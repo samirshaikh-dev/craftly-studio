@@ -3,6 +3,8 @@ import Image from "next/image";
 import FinalCta from "@/components/sections/FinalCta";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { buildMetadata } from "@/lib/seo/metadata";
+import JsonLd from "@/components/seo/JsonLd";
+import { personSchema } from "@/lib/seo/schemas";
 
 export const metadata: Metadata = buildMetadata({
   title: "About Craftly Studio - Web Development Agency in Vapi, Gujarat",
@@ -35,6 +37,7 @@ export const metadata: Metadata = buildMetadata({
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={personSchema()} />
       <section className="pt-48 pb-24 bg-bg-inverse text-white">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
           <Breadcrumbs items={[{ label: "About", href: "/about" }]} />

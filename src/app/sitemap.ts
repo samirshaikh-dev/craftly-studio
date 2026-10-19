@@ -2,65 +2,74 @@ import type { MetadataRoute } from "next";
 import { SITE_URL, SERVICES, INDUSTRIES } from "@/lib/seo/constants";
 import { BLOG_POSTS } from "@/lib/blog/posts";
 
+// Stable release date for static pages to ensure search engine crawl trust
+const STABLE_RELEASE_DATE = new Date("2026-08-01T00:00:00Z");
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: SITE_URL,
-      lastModified: new Date(),
+      lastModified: STABLE_RELEASE_DATE,
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
       url: `${SITE_URL}/services`,
-      lastModified: new Date(),
+      lastModified: STABLE_RELEASE_DATE,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
+      url: `${SITE_URL}/pricing`,
+      lastModified: STABLE_RELEASE_DATE,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
       url: `${SITE_URL}/about`,
-      lastModified: new Date(),
+      lastModified: STABLE_RELEASE_DATE,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/mission`,
-      lastModified: new Date(),
+      lastModified: STABLE_RELEASE_DATE,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/portfolio`,
-      lastModified: new Date(),
+      lastModified: STABLE_RELEASE_DATE,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/blog`,
-      lastModified: new Date(),
+      lastModified: STABLE_RELEASE_DATE,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/contact`,
-      lastModified: new Date(),
+      lastModified: STABLE_RELEASE_DATE,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${SITE_URL}/sitemap`,
-      lastModified: new Date(),
+      lastModified: STABLE_RELEASE_DATE,
       changeFrequency: "monthly",
       priority: 0.3,
     },
     {
       url: `${SITE_URL}/privacy`,
-      lastModified: new Date(),
+      lastModified: STABLE_RELEASE_DATE,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${SITE_URL}/terms`,
-      lastModified: new Date(),
+      lastModified: STABLE_RELEASE_DATE,
       changeFrequency: "yearly",
       priority: 0.3,
     },
@@ -68,14 +77,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const servicePages: MetadataRoute.Sitemap = SERVICES.map((service) => ({
     url: `${SITE_URL}/services/${service.slug}`,
-    lastModified: new Date(),
+    lastModified: STABLE_RELEASE_DATE,
     changeFrequency: "monthly" as const,
     priority: 0.85,
   }));
 
   const industryPages: MetadataRoute.Sitemap = INDUSTRIES.map((industry) => ({
     url: `${SITE_URL}/industries/${industry.slug}`,
-    lastModified: new Date(),
+    lastModified: STABLE_RELEASE_DATE,
     changeFrequency: "monthly" as const,
     priority: 0.85,
   }));

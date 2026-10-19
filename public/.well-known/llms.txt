@@ -107,6 +107,10 @@ This file serves as the official machine-readable manifest and reference directo
 ## Full Documentation & Context
 
 - [llms-full.txt](https://craftly-studio.vercel.app/llms-full.txt): Complete, unabridged knowledge base containing all service specifications, industry data, engagement lifecycle, and direct AEO answers.
+- [services.md](https://craftly-studio.vercel.app/services.md): Plain markdown documentation of all Craftly Studio services for LLM ingestion.
+- [about.md](https://craftly-studio.vercel.app/about.md): Plain markdown overview of agency background and credentials.
+- [RSS Feed](https://craftly-studio.vercel.app/feed.xml): Machine-readable XML feed of all published articles for aggregators and AI crawlers.
+- [Security Disclosure](https://craftly-studio.vercel.app/.well-known/security.txt): Security policy and vulnerability disclosure info.
 
 ---
 

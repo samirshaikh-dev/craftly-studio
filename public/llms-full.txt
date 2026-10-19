@@ -261,4 +261,9 @@ Standard business websites typically launch in 2 to 4 weeks. Custom e-commerce p
 - **XML Sitemap**: https://craftly-studio.vercel.app/sitemap.xml
 - **Curated LLM Manifest**: https://craftly-studio.vercel.app/llms.txt
 - **Full LLM Knowledge Base**: https://craftly-studio.vercel.app/llms-full.txt
+- **Services Markdown**: https://craftly-studio.vercel.app/services.md
+- **About Markdown**: https://craftly-studio.vercel.app/about.md
+- **RSS 2.0 Feed**: https://craftly-studio.vercel.app/feed.xml
+- **Security Policy**: https://craftly-studio.vercel.app/.well-known/security.txt
+- **IndexNow Verification**: https://craftly-studio.vercel.app/c7490f23b7a840e6958a7e02e1bdfc54.txt
 - **Official Contact Portal**: https://craftly-studio.vercel.app/contact

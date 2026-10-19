@@ -86,6 +86,7 @@ export function localBusinessSchema() {
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Business Automation" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Branding & UI/UX Design" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Landing Pages" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Software Development" } },
       ],
     },
   };
@@ -218,3 +219,29 @@ export function articleSchema(article: ArticleSchemaInput) {
     },
   };
 }
+
+// ─── Person Schema ───────────────────────────────────────────────────────────
+
+export interface PersonSchemaInput {
+  name?: string;
+  jobTitle?: string;
+  url?: string;
+  image?: string;
+}
+
+export function personSchema(person?: PersonSchemaInput) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${SITE_URL}/#founder`,
+    name: person?.name || "Craftly Studio Team",
+    jobTitle: person?.jobTitle || "Founder & Technical Lead",
+    worksFor: {
+      "@id": `${SITE_URL}/#organization`,
+    },
+    url: person?.url || `${SITE_URL}/about`,
+    image: person?.image || `${SITE_URL}/craftly-studio-digital-agency-vapi-gujarat.jpg`,
+    sameAs: Object.values(BUSINESS_INFO.socialLinks),
+  };
+}
+
